@@ -1,17 +1,17 @@
-const path = require("path");
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const InterpolateHtmlPlugin = require("interpolate-html-plugin");
+const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/index.js"),
+  entry: path.resolve(__dirname, 'src/index.js'),
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[hash].js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[hash].js'
   },
   optimization: {
     splitChunks: {
-      chunks: "all"
+      chunks: 'all'
     }
   },
   module: {
@@ -20,23 +20,23 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html"
+      template: './public/index.html'
     }),
     new InterpolateHtmlPlugin({
-      PUBLIC_URL: ""
+      PUBLIC_URL: ''
     }),
     new webpack.HashedModuleIdsPlugin()
   ],
   resolve: {
     alias: {
-      "react-dom": "@hot-loader/react-dom"
+      'react-dom': '@hot-loader/react-dom'
     }
   },
   devServer: {
@@ -51,10 +51,10 @@ module.exports = {
       reasons: false,
       children: false,
       source: false,
-      errors: false,
+      errors: true,
       errorDetails: false,
-      warnings: false,
-      publicPath: false
+      warnings: true,
+      publicPath: true
     }
   }
 };

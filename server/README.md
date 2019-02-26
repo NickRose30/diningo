@@ -1,0 +1,1 @@
+The backend of the project will go into this directory, delete this readme when there are actual files in this folder.

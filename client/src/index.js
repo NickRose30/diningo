@@ -1,24 +1,24 @@
 import * as serviceWorker from './serviceWorker';
-import "react-hot-loader/patch";
-import React from "react";
-import ReactDOM from "react-dom";
-import { AppContainer } from "react-hot-loader";
+import 'react-hot-loader/patch';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
-import App from "./containers/App";
+import App from './components/App';
 
 const render = Component => {
   ReactDOM.render(
-    <AppContainer >
+    <AppContainer>
       <Component />
     </AppContainer>,
-    document.getElementById("root")
+    document.getElementById('root')
   );
 };
 
 render(App);
 
 if (module.hot) {
-  module.hot.accept("./containers/App", () => {
+  module.hot.accept('./components/App', () => {
     render(App);
   });
 }
