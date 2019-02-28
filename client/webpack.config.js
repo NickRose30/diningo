@@ -55,6 +55,7 @@ module.exports = {
       errorDetails: false,
       warnings: true,
       publicPath: true
-    }
+    },
+    historyApiFallback: true,
   }
 };
