@@ -35,6 +35,7 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin()
   ],
   resolve: {
+    modules: [path.resolve('./node_modules')],
     alias: {
       'react-dom': '@hot-loader/react-dom'
     }

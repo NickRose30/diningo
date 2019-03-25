@@ -8,6 +8,10 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // Components
 import Main from './Main';
+import Navbar from './Nav';
+// styles
+import { createGlobalStyle } from 'styled-components';
+import { defaultFont } from '../vars';
 
 const store = createStore(
   rootReducer,
@@ -17,10 +21,22 @@ const store = createStore(
   )
 );
 
+const GlobalStyle = createGlobalStyle`
+  body, html {
+    font-family: ${defaultFont};
+    font-weight: lighter;
+    margin: 0;
+  }
+`;
+
 const App = () => (
   <Provider store={store}>
     <Router>
-      <Main />
+      <div>
+        <GlobalStyle />
+        <Navbar />
+        <Main />
+      </div>
     </Router>
   </Provider>
 );
