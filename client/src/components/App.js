@@ -8,7 +8,6 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // Components
 import Main from './Main';
-import Navbar from './Nav';
 // styles
 import { createGlobalStyle } from 'styled-components';
 import { defaultFont } from '../vars';
@@ -34,7 +33,6 @@ const App = () => (
     <Router>
       <div>
         <GlobalStyle />
-        <Navbar />
         <Main />
       </div>
     </Router>
