@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { colorDefaultOrange, colorDefaultDarkOrange } from '../vars';
+import {
+  colorWhite,
+  colorDefaultOrange, 
+  colorDefaultDarkOrange,
+} from '../vars';
 
 const NavContainer = styled.nav`
   display: flex;
@@ -19,28 +23,28 @@ const NavContainer = styled.nav`
 // TODO: replace this with an actual logo image
 const Logo = styled(Link)`
   text-decoration: none;
-  color: white;
+  color: ${colorWhite};
   font-size: 40px;
   padding: 20px 10px;
 `;
 
 const NavLink = styled(Link)`
   margin: 10px;
-  color: white;
+  color: ${colorWhite};
   text-decoration: none;
 `;
 
 const AccountButton = styled(Link)`
   text-decoration: none;
-  border: 2px solid white;
+  border: 2px solid ${colorWhite};
   margin: 10px;
-  color: white;
+  color: ${colorWhite};
   border-radius: 5px;
   padding: 5px 20px;
 
   :hover {
     color: ${colorDefaultOrange};
-    background-color: white;
+    background-color: ${colorWhite};
     cursor: pointer;
   }
 `;
