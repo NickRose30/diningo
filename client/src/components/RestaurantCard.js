@@ -3,11 +3,11 @@ import { withRouter } from 'react-router-dom';
 // styles
 import styled from 'styled-components';
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from 'react-icons/io';
-import { colorDefaultOrange, colorHoverGray } from '../vars';
+import { colorDefaultOrange, colorHoverGray, colorBorderGray } from '../vars';
 
 const Container = styled.div`
   display: flex;
-  margin: 40px;
+  margin: 20px;
 
   :hover {
     cursor: pointer;
@@ -25,7 +25,7 @@ const DisplayImage = styled.img`
 const DescriptionContainer = styled.div`
   flex: 1;
   padding: 15px;
-  border: 1px solid lightgray;
+  border: 1px solid ${colorBorderGray};
   border-left: none;
 `;
 

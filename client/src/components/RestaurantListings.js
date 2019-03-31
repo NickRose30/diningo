@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const ListingContainer = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 class RestaurantListings extends Component {
