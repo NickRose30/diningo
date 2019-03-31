@@ -6,6 +6,7 @@ export const fetchInitialListings = () => dispatch => {
     type: types.FETCH_INITIAL_LISTINGS,
     listings: [
       {
+        id: '1234',
         image:
           'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
         title: 'Restaurant One',
@@ -13,9 +14,10 @@ export const fetchInitialListings = () => dispatch => {
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
           veniam, quis nostrud exercitation ullamco.`,
-        stars: '4.5',
+        stars: '4.5'
       },
       {
+        id: '5678',
         image:
           'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
         title: 'Restaurant Two',
@@ -23,9 +25,10 @@ export const fetchInitialListings = () => dispatch => {
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
-        stars: '1.5',
+        stars: '1.5'
       },
       {
+        id: '9101',
         image:
           'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
         title: 'Restaurant Three',
@@ -33,7 +36,7 @@ export const fetchInitialListings = () => dispatch => {
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
-        stars: '3.5',
+        stars: '3.5'
       }
     ]
   });

@@ -1,12 +1,18 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 // styles
 import styled from 'styled-components';
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from 'react-icons/io';
-import { colorDefaultOrange } from '../vars';
+import { colorDefaultOrange, colorHoverGray } from '../vars';
 
 const Container = styled.div`
   display: flex;
-  padding: 20px;
+  margin: 40px;
+
+  :hover {
+    cursor: pointer;
+    background-color: ${colorHoverGray};
+  }
 `;
 
 const DisplayImage = styled.img`
@@ -76,13 +82,15 @@ const calculateStars = numStars => {
 };
 
 const RestaurantCard = ({
+  id,
   image,
   title,
   address,
   description,
   stars,
+  history,
 }) => (
-  <Container>
+  <Container onClick={() => history.push(`/${id}`)}>
     <DisplayImage
       src={image}
       alt={title}
@@ -90,7 +98,7 @@ const RestaurantCard = ({
     <DescriptionContainer>
       <RestaurantHeader>
         <RestaurantTitle>{title}</RestaurantTitle>
-          <div>{calculateStars(stars)}</div>
+        <div>{calculateStars(stars)}</div>
       </RestaurantHeader>
       <RestaurantAddress>{address}</RestaurantAddress>
       <Description>{description}</Description>
@@ -98,4 +106,4 @@ const RestaurantCard = ({
   </Container>
 );
 
-export default RestaurantCard;
+export default withRouter(RestaurantCard);
