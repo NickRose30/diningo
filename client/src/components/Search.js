@@ -2,18 +2,22 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { colorWhite, colorTransparentGray2, colorTransparentBlack } from '../vars';
 
-const SearchInput = styled.input`
-  height: 40px;
+const SearchForm = styled.form`
   margin: auto auto;
+  width: 65%;
+  min-width: 300px;
+`;
+
+const SearchInput = styled.input`
+  height: 40px; 
   font-size: 24px;
   border: none;
   padding: 0 5px;
   transition: background 500ms ease-out;
   background: ${colorTransparentGray2};
-  width: 65%
-  min-width: 300px;
+  width: 100%;
 
-  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  ::-webkit-input-placeholder {
     color: ${colorTransparentBlack};
   }
 
@@ -34,15 +38,22 @@ class Search extends Component {
     });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({input: ''});
+  };
+
   render() {
     return (
-      <SearchInput
-        onChange={this.handleChange}
-        name='input'
-        type='text'
-        value={this.state.input}
-        placeholder='Search for a restaurant...'
-      />
+      <SearchForm onSubmit={this.handleSubmit}>
+        <SearchInput
+          onChange={this.handleChange}
+          name='input'
+          type='text'
+          value={this.state.input}
+          placeholder='Search for a restaurant...'
+        />
+      </SearchForm>
     );
   }
 }
