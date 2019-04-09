@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { colorBorderGray, colorBlack } from '../vars';
+import { colorWhite, colorTransparentGray2, colorTransparentBlack } from '../vars';
 
 const SearchInput = styled.input`
   height: 40px;
-  margin: 20px;
+  margin: auto auto;
   font-size: 24px;
   border: none;
-  border-bottom: 1.5px solid ${colorBorderGray};
-  transition: border 500ms ease-out;
+  padding: 0 5px;
+  transition: background 500ms ease-out;
+  background: ${colorTransparentGray2};
+  width: 65%
+  min-width: 300px;
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: ${colorTransparentBlack};
+  }
 
   :focus {
     outline: none;
-    border-color: ${colorBlack};
+    background: ${colorWhite};
   }
 `;
 
@@ -34,7 +41,7 @@ class Search extends Component {
         name='input'
         type='text'
         value={this.state.input}
-        placeholder='Search...'
+        placeholder='Search for a restaurant...'
       />
     );
   }

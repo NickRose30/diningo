@@ -1,23 +1,41 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+// styles
 import styled from 'styled-components';
 import {
   colorWhite,
-  colorDefaultOrange, 
+  colorDefaultOrange,
   colorDefaultDarkOrange,
+  colorTransparentGray,
 } from '../vars';
+//components
+import Search from './Search';
+// images
+import Backdrop from '../images/alcohol-ale-bar.jpg';
+
+const LandingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: ${props => (props.landing ? '' : colorDefaultOrange)};
+  background-image: ${props =>
+    props.landing
+      ? `url(${Backdrop})`
+      : `linear-gradient(
+      80deg,
+      ${colorDefaultDarkOrange} 0%,
+      ${colorDefaultOrange} 70%
+    );`};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: ${props => (props.landing ? '75vh' : '')};
+`;
 
 const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${colorDefaultOrange};
   padding: 0 20px;
-  background-image: linear-gradient(
-    80deg,
-    ${colorDefaultDarkOrange} 0%,
-    ${colorDefaultOrange} 70%
-  );
 `;
 
 // TODO: replace this with an actual logo image
@@ -36,29 +54,39 @@ const NavLink = styled(Link)`
 
 const AccountButton = styled(Link)`
   text-decoration: none;
-  border: 2px solid ${colorWhite};
+  border: 2px solid ${props => (props.landing ? colorTransparentGray : colorWhite)};
   margin: 10px;
   color: ${colorWhite};
   border-radius: 5px;
   padding: 5px 20px;
 
   :hover {
-    color: ${colorDefaultOrange};
-    background-color: ${colorWhite};
+    background-color: ${props => (props.landing ? colorTransparentGray : colorWhite)};
+    color: ${props => (props.landing ? colorWhite : colorDefaultOrange)}
     cursor: pointer;
   }
 `;
 
-const Nav = () => (
-  <NavContainer>
-    <Logo to='/'>DININGO</Logo>
-    <div>
-      <NavLink to='/'>About Us</NavLink>
-      <NavLink to='/'>Contact Us</NavLink>
-      <AccountButton to='/'>Log in</AccountButton>
-      <AccountButton to='/'>Sign up</AccountButton>
-    </div>
-  </NavContainer>
-);
+const Nav = props => {
+  const isRoot = props.location.pathname === '/';
+  return (
+    <LandingContainer landing={isRoot}>
+      <NavContainer>
+        <Logo to='/'>DININGO</Logo>
+        <div>
+          <NavLink to='/'>About Us</NavLink>
+          <NavLink to='/'>Contact Us</NavLink>
+          <AccountButton landing={isRoot} to='/'>
+            Log in
+          </AccountButton>
+          <AccountButton landing={isRoot} to='/'>
+            Sign up
+          </AccountButton>
+        </div>
+      </NavContainer>
+      {props.location.pathname === '/' && <Search />}
+    </LandingContainer>
+  )
+};
 
-export default Nav;
+export default withRouter(Nav);
