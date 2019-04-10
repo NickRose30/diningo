@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import scrollToComponent from 'react-scroll-to-component';
 import { colorWhite, colorTransparentGray2, colorTransparentBlack } from '../vars';
 
 const SearchForm = styled.form`
@@ -38,10 +39,19 @@ class Search extends Component {
     });
   };
 
+  scrollToResults = () => scrollToComponent(
+    this.props.landingRef.current, 
+    {
+      align: 'top',
+      duration: 800,
+    }
+  );
+
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({input: ''});
-    this.props.handleSearch('test');
+    this.props.handleSearch(this.state.input);
+    this.setState({ input: '' });
+    this.scrollToResults();
   };
 
   render() {

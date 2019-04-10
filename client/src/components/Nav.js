@@ -84,7 +84,7 @@ const Nav = props => {
           </AccountButton>
         </div>
       </NavContainer>
-      {props.location.pathname === '/' && <Search />}
+      {props.location.pathname === '/' && <Search landingRef={props.workspaceRef} />}
     </LandingContainer>
   )
 };
