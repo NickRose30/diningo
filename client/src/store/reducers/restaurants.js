@@ -6,6 +6,8 @@ const restaurants = (state = {}, action) => {
       return { ...state, initialListings: action.listings };
     case types.FETCH_SEARCH_RESULTS:
       return { ...state, searchResults: action.results };
+    case types.FETCH_RESTAURANT_PROFILE:
+      return { ...state, selectedRestaurant: action.profile };
     default:
       return state;
   }  

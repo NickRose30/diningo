@@ -4,7 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import Workspace from './Workspace';
 import PageNotFound from './PageNotFound';
 import Landing from './Landing';
-import RestaurantProfile from './RestaurantProfile';
+import RestaurantProfile from '../containers/RestaurantProfile';
 
 const renderWorkspace = Component => () => <Workspace Component={Component} />;
 
