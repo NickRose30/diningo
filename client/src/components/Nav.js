@@ -9,7 +9,7 @@ import {
   colorTransparentGray,
 } from '../vars';
 //components
-import Search from './Search';
+import Search from '../containers/Search';
 // images
 import Backdrop from '../images/alcohol-ale-bar.jpg';
 
