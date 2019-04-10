@@ -1,18 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react';
 import RestaurantListings from '../containers/RestaurantListings';
-import Search from './Search';
+import styled from 'styled-components';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+const ListingHeader = styled.h2`
+  text-align: center;
 `;
 
-const Landing = () => (
-  <Container>
-    <Search />
-    <RestaurantListings />
-  </Container>
-);
+class Landing extends Component {
+  render() {
+    return (
+      <div ref={this.props.setRef}>
+        <ListingHeader>Recommended For You</ListingHeader>
+        <RestaurantListings />
+      </div>
+    );
+  }
+}
 
 export default Landing;

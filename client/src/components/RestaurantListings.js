@@ -15,10 +15,11 @@ class RestaurantListings extends Component {
   };
 
   render() {
-    const { listings } = this.props;
-    const restaurantListings = listings.map((listing, i) => (
+    const { initialListings, searchResults } = this.props;
+    const listings = searchResults ? searchResults : initialListings;
+    const restaurantListings = listings ? listings.map((listing, i) => (
       <RestaurantCard {...listing} key={i} />
-    ));
+    )) : [];
     return (
       <ListingContainer>
         {restaurantListings}
