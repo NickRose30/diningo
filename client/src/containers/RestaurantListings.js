@@ -3,7 +3,8 @@ import RestaurantListings from '../components/RestaurantListings';
 import { fetchInitialListings } from '../store/actions/restaurants';
 
 const mapStateToProps = state => ({
-  listings: state.restaurants.initialListings,
+  initialListings: state.restaurants.initialListings,
+  searchResults: state.restaurants.searchResults,
 });
 
 const mapDispatchToProps = {
