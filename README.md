@@ -13,27 +13,7 @@ Then cd into the client directory
 ### 2. Install dependencies
 
 ```
-npm install
-```
-If you get an error like 
-
-```
-npm ERR! Invalid dependency type requested
-```
-then you will need to install the dependencies with yarn.
-
-You can install yarn (on Mac) by running 
-
-```
-brew install yarn
-```
-and then install the dependencies by running the following
-
-```
-yarn install
-```
-```
-npm install @babel/plugin-proposal-class-properties
+npm run setup
 ```
 
 ### 3. Run the app
