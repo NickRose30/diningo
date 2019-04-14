@@ -96,7 +96,17 @@ export const fetchRestaurantProfile = id => dispatch => {
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
-      stars: '4.5'
+      stars: '3.5',
+      currentWait: 55,
+      hours: {
+        mon: '11 - 10',
+        tue: '11 - 10',
+        wed: '11 - 10',
+        thu: '11 - 10',
+        fri: '11 - midnight',
+        sat: '11 - midnight',
+        sun: '11 - 10',
+      }
     }
   });
 };
