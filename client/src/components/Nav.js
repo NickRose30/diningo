@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 // styles
 import styled from 'styled-components';
@@ -11,7 +11,13 @@ import {
 //components
 import Search from '../containers/Search';
 // images
-import Backdrop from '../images/alcohol-ale-bar.jpg';
+import Backdrop1 from '../images/alcohol-ale-bar.jpg';
+import Backdrop2 from '../images/appetizer-dark-delicious.jpg';
+
+const BackgroundImgs = [
+  Backdrop1,
+  Backdrop2,
+];
 
 const LandingContainer = styled.div`
   display: flex;
@@ -19,7 +25,7 @@ const LandingContainer = styled.div`
   background: ${props => (props.landing ? '' : colorDefaultOrange)};
   background-image: ${props =>
     props.landing
-      ? `url(${Backdrop})`
+      ? `url(${props.image})`
       : `linear-gradient(
       80deg,
       ${colorDefaultDarkOrange} 0%,
@@ -67,26 +73,51 @@ const AccountButton = styled(Link)`
   }
 `;
 
-const Nav = props => {
-  const isRoot = props.location.pathname === '/';
-  return (
-    <LandingContainer landing={isRoot}>
-      <NavContainer>
-        <Logo to='/'>DININGO</Logo>
-        <div>
-          <NavLink to='/'>About Us</NavLink>
-          <NavLink to='/'>Contact Us</NavLink>
-          <AccountButton landing={isRoot} to='/'>
-            Log in
-          </AccountButton>
-          <AccountButton landing={isRoot} to='/'>
-            Sign up
-          </AccountButton>
-        </div>
-      </NavContainer>
-      {props.location.pathname === '/' && <Search landingRef={props.workspaceRef} />}
-    </LandingContainer>
-  )
+class Nav extends Component {
+  state = {
+    backgroundImgIndex: 0,
+  };
+
+  componentDidMount() {
+    const updateImg = () => {
+      const currIndex = this.state.backgroundImgIndex;
+      const nextIndex =
+        currIndex + 1 <= BackgroundImgs.length ? currIndex + 1 : 0;
+      this.setState({ backgroundImgIndex: nextIndex });
+    };
+    this.intervalId = setInterval(updateImg, 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+    console.log('Interval Cleared');
+  }
+
+  render() {
+    const { location, workspaceRef } = this.props;
+    const isRoot = location.pathname === '/';
+    return (
+      <LandingContainer
+        landing={isRoot}
+        image={BackgroundImgs[this.state.backgroundImgIndex]}
+      >
+        <NavContainer>
+          <Logo to='/'>DININGO</Logo>
+          <div>
+            <NavLink to='/'>About Us</NavLink>
+            <NavLink to='/'>Contact Us</NavLink>
+            <AccountButton landing={isRoot} to='/'>
+              Log in
+            </AccountButton>
+            <AccountButton landing={isRoot} to='/'>
+              Sign up
+            </AccountButton>
+          </div>
+        </NavContainer>
+        {location.pathname === '/' && <Search landingRef={workspaceRef} />}
+      </LandingContainer>
+    );
+  }
 };
 
 export default withRouter(Nav);
