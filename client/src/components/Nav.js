@@ -11,12 +11,28 @@ import {
 //components
 import Search from '../containers/Search';
 // images
-import Backdrop1 from '../images/alcohol-ale-bar.jpg';
-import Backdrop2 from '../images/appetizer-dark-delicious.jpg';
+const Backdrop1 = require('../images/alcohol-ale-bar.jpg');
+const Backdrop2 = require('../images/appetizer-dark-delicious.jpg');
+const Backdrop3 = require('../images/artisanal-food-cheese-cooking.jpg');
+const Backdrop4 = require('../images/beef-bread-burger.jpg');
+const Backdrop5 = require('../images/beer-cheese-food.jpg');
+const Backdrop6 = require('../images/berries-bread-delicious.jpg');
+const Backdrop7 = require('../images/blur-close-up-cutlery.jpg');
+const Backdrop8 = require('../images/bread-bun-burger.jpg');
+const Backdrop9 = require('../images/burning-chili-chilli-peppers.jpg');
+const Backdrop10 = require('../images/dinner-food-meal.jpg');
 
 const BackgroundImgs = [
   Backdrop1,
   Backdrop2,
+  Backdrop3,
+  Backdrop4,
+  Backdrop5,
+  Backdrop6,
+  Backdrop7,
+  Backdrop8,
+  Backdrop9,
+  Backdrop10,
 ];
 
 const LandingContainer = styled.div`
@@ -35,6 +51,7 @@ const LandingContainer = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   height: ${props => (props.landing ? '75vh' : '')};
+  transition: background-image 1000ms ease-in;
 `;
 
 const NavContainer = styled.nav`
@@ -82,10 +99,10 @@ class Nav extends Component {
     const updateImg = () => {
       const currIndex = this.state.backgroundImgIndex;
       const nextIndex =
-        currIndex + 1 <= BackgroundImgs.length ? currIndex + 1 : 0;
+        currIndex + 1 < BackgroundImgs.length ? currIndex + 1 : 0;
       this.setState({ backgroundImgIndex: nextIndex });
     };
-    this.intervalId = setInterval(updateImg, 5000);
+    this.intervalId = setInterval(updateImg, 6000);
   }
 
   componentWillUnmount() {
@@ -106,10 +123,10 @@ class Nav extends Component {
           <div>
             <NavLink to='/'>About Us</NavLink>
             <NavLink to='/'>Contact Us</NavLink>
-            <AccountButton landing={isRoot} to='/'>
+            <AccountButton landing={isRoot} to='#'>
               Log in
             </AccountButton>
-            <AccountButton landing={isRoot} to='/'>
+            <AccountButton landing={isRoot} to='#'>
               Sign up
             </AccountButton>
           </div>
