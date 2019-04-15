@@ -8,6 +8,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // Components
 import Main from './Main';
+import ScrollToTop from './ScrollToTop';
 // styles
 import { createGlobalStyle } from 'styled-components';
 import { defaultFont } from '../vars';
@@ -31,10 +32,10 @@ const GlobalStyle = createGlobalStyle`
 const App = () => (
   <Provider store={store}>
     <Router>
-      <div>
+      <ScrollToTop>
         <GlobalStyle />
         <Main />
-      </div>
+      </ScrollToTop>
     </Router>
   </Provider>
 );
