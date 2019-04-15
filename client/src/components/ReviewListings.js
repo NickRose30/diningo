@@ -8,9 +8,13 @@ const ListingsContainer = styled.div`
   border: 1px solid ${colorDefaultOrange};
 `;
 
+const CompTitle = styled.h3`
+  padding: 0 20px;
+`;
+
 const ReviewListings = props => (
   <ListingsContainer>
-    <div>Reviews</div>
+    <CompTitle>Reviews</CompTitle>
   </ListingsContainer>
 );
 
