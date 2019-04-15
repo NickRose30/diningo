@@ -82,15 +82,28 @@ const HoursContainer = styled.div`
   color: ${colorBlack};
 `;
 
+const HoursSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const HoursHr = styled.hr`
   border-color: ${colorTransparentOrange};
 `;
 
-const Hours = styled.span`
+const Hours = styled.p`
   color: ${colorDefaultDarkOrange};
+  margin: 5px 0;
 `;
 
-const HourComp = ({ day, hours }) => <p>{day}: <Hours>{hours}</Hours></p>;
+const Days = styled.p`
+  margin: 5px 0;
+`;
+
+const HourDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 class RestaurantProfile extends Component {
   state = {
@@ -125,13 +138,26 @@ class RestaurantProfile extends Component {
           <HoursContainer>
             <div>Hours</div>
             <HoursHr />
-            <HourComp day='Monday' hours={mon} />
-            <HourComp day='Tuesday' hours={tue} />
-            <HourComp day='Wednesday' hours={wed} />
-            <HourComp day='Thursday' hours={thu} />
-            <HourComp day='Friday' hours={fri} />
-            <HourComp day='Saturday' hours={sat} />
-            <HourComp day='Sunday' hours={sun} />
+            <HoursSection>
+              <HourDetails>
+                <Days>Monday:</Days>
+                <Days>Tuesday:</Days>
+                <Days>Wednesday:</Days>
+                <Days>Thursday:</Days>
+                <Days>Friday:</Days>
+                <Days>Saturday:</Days>
+                <Days>Sunday:</Days>
+              </HourDetails>
+              <HourDetails>
+                <Hours>{mon}</Hours>
+                <Hours>{tue}</Hours>
+                <Hours>{wed}</Hours>
+                <Hours>{thu}</Hours>
+                <Hours>{fri}</Hours>
+                <Hours>{sat}</Hours>
+                <Hours>{sun}</Hours>
+              </HourDetails>
+            </HoursSection>
           </HoursContainer>
         </LeftPanel>
         <RightPanel>

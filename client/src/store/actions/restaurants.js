@@ -99,13 +99,13 @@ export const fetchRestaurantProfile = id => dispatch => {
       stars: '3.5',
       currentWait: 55,
       hours: {
-        mon: '11 - 10',
-        tue: '11 - 10',
-        wed: '11 - 10',
-        thu: '11 - 10',
-        fri: '11 - midnight',
-        sat: '11 - midnight',
-        sun: '11 - 10',
+        mon: '11:00 AM - 10:00 PM',
+        tue: '11:00 AM - 10:00 PM',
+        wed: '11:00 AM - 10:00 PM',
+        thu: '11:00 AM - 10:00 PM',
+        fri: '11:00 AM - 12:00 AM',
+        sat: '11:00 AM - 12:00 AM',
+        sun: '11:00 AM - 10:00 PM'
       }
     }
   });
