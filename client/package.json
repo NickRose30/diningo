@@ -6,6 +6,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-react": "^7.0.0",
     "@hot-loader/react-dom": "^16.8.3",
+    "google-map-react": "^1.1.4",
     "interpolate-html-plugin": "^3.0.0",
     "ramda": "^0.26.1",
     "react": "^16.8.3",

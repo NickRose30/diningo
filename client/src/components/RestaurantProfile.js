@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import * as R from 'ramda';
 import styled from 'styled-components';
+import GoogleMapReact from 'google-map-react';
 import { DefaultBtn } from '../sharedAssets';
 import Stars from './Stars';
 import {
@@ -73,6 +74,11 @@ const WaitTime = styled.span`
   text-shadow: 0 1px 6px ${colorTransparentBlack};
 `;
 
+const GoogleMapsContainer = styled.div`
+  height: 300px;
+  width: 100%;
+`;
+
 const HoursContainer = styled.div`
   max-width: 100%;
   margin: 25px 0;
@@ -105,6 +111,14 @@ const HourDetails = styled.div`
   flex-direction: column;
 `;
 
+const MapMarker = styled.div`
+  font-weight: bold;
+  color: ${colorDefaultDarkOrange};
+  text-shadow: 0 0 2px ${colorWhite};
+`;
+
+const MapComponent = ({ text }) => <MapMarker>{text}</MapMarker>;
+
 class RestaurantProfile extends Component {
   state = {
     profile: {},
@@ -125,7 +139,7 @@ class RestaurantProfile extends Component {
   }
 
   render() {
-    const { image, title, address, description, stars, currentWait } =
+    const { image, title, address, description, stars, currentWait, lat, lng } =
       R.prop('profile', this.state) || {};
 
     const { mon, tue, wed, thu, fri, sat, sun } =
@@ -159,6 +173,24 @@ class RestaurantProfile extends Component {
               </HourDetails>
             </HoursSection>
           </HoursContainer>
+          <GoogleMapsContainer>
+            <GoogleMapReact
+              bootstrapURLKeys={{
+                key: 'AIzaSyCXTWSX9Ng57FGDTaTPZvNN3obiBIIhofg'
+              }}
+              defaultCenter={{
+                lat,
+                lng,
+              }}
+              defaultZoom={14}
+            >
+              <MapComponent
+                lat={lat}
+                lng={lng}
+                text={title}
+              />
+            </GoogleMapReact>
+          </GoogleMapsContainer>
         </LeftPanel>
         <RightPanel>
           <Header>
