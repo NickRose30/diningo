@@ -54,22 +54,19 @@ const RestaurantCard = ({
   image,
   title,
   address,
-  description,
+  descriptionSnippet,
   stars,
-  history,
+  history
 }) => (
   <Container onClick={() => history.push(`/${id}`)}>
-    <DisplayImage
-      src={image}
-      alt={title}
-    />
+    <DisplayImage src={image} alt={title} />
     <DescriptionContainer>
       <RestaurantHeader>
         <RestaurantTitle>{title}</RestaurantTitle>
         <Stars num={stars} />
       </RestaurantHeader>
       <RestaurantAddress>{address}</RestaurantAddress>
-      <Description>{description}</Description>
+      <Description>{descriptionSnippet}</Description>
     </DescriptionContainer>
   </Container>
 );

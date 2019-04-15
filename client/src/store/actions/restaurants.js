@@ -12,7 +12,7 @@ export const fetchInitialListings = () => dispatch => {
           'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
         title: 'Restaurant One',
         address: '148 South East Street, Amherst MA 01002',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
           veniam, quis nostrud exercitation ullamco.`,
         stars: '4.5'
@@ -23,7 +23,7 @@ export const fetchInitialListings = () => dispatch => {
           'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
         title: 'Restaurant Two',
         address: '148 South East Street, Amherst MA 01003',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
         stars: '1.5'
@@ -34,7 +34,7 @@ export const fetchInitialListings = () => dispatch => {
           'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
         title: 'Restaurant Three',
         address: '148 South East Street, Amherst MA 01002',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
         stars: '3.5'
@@ -53,7 +53,7 @@ export const fetchSearchResults = input => dispatch => {
           'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
         title: 'Restaurant One',
         address: '148 South East Street, Amherst MA 01002',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
           veniam, quis nostrud exercitation ullamco.`,
         stars: '4.5'
@@ -64,7 +64,7 @@ export const fetchSearchResults = input => dispatch => {
           'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
         title: 'Restaurant Two',
         address: '148 South East Street, Amherst MA 01003',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
         stars: '1.5'
@@ -75,7 +75,7 @@ export const fetchSearchResults = input => dispatch => {
           'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
         title: 'Restaurant Three',
         address: '148 South East Street, Amherst MA 01002',
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
         stars: '3.5'
@@ -93,7 +93,13 @@ export const fetchRestaurantProfile = id => dispatch => {
         'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
       title: 'Restaurant One',
       address: '148 South East Street, Amherst MA 01002',
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      fullDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
       stars: '3.5',

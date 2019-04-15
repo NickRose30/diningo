@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import GoogleMapReact from 'google-map-react';
 import { DefaultBtn } from '../sharedAssets';
 import Stars from './Stars';
+import ReviewListings from './ReviewListings';
 import {
   colorGreen,
   colorYellow,
@@ -139,7 +140,7 @@ class RestaurantProfile extends Component {
   }
 
   render() {
-    const { image, title, address, description, stars, currentWait, lat, lng } =
+    const { image, title, address, fullDescription, stars, currentWait, lat, lng } =
       R.prop('profile', this.state) || {};
 
     const { mon, tue, wed, thu, fri, sat, sun } =
@@ -176,19 +177,15 @@ class RestaurantProfile extends Component {
           <GoogleMapsContainer>
             <GoogleMapReact
               bootstrapURLKeys={{
-                key: 'AIzaSyCXTWSX9Ng57FGDTaTPZvNN3obiBIIhofg'
+                key: process.env.GOOGLE_API_KEY
               }}
               defaultCenter={{
                 lat,
-                lng,
+                lng
               }}
               defaultZoom={14}
             >
-              <MapComponent
-                lat={lat}
-                lng={lng}
-                text={title}
-              />
+              <MapComponent lat={lat} lng={lng} text={title} />
             </GoogleMapReact>
           </GoogleMapsContainer>
         </LeftPanel>
@@ -208,7 +205,8 @@ class RestaurantProfile extends Component {
               <WaitTime time={currentWait}>{currentWait} minutes</WaitTime>
             </WaitTimeContainer>
           </StarsAndWaitTime>
-          <p>{description}</p>
+          <p>{fullDescription}</p>
+          <ReviewListings />
         </RightPanel>
       </Container>
     );

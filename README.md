@@ -16,7 +16,15 @@ Then cd into the client directory
 npm run setup
 ```
 
-### 3. Run the app
+### 3. Create .env file
+
+Create a file called `.env` in the `client/` directory. Put in it:
+```
+GOOGLE_API_KEY=your_google_api_key
+```
+obviously replacing the 'your_google_api_key' part with your own google api key
+
+### 4. Run the app
 
 ```
 npm run start

@@ -2,6 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const webpack = require('webpack');
+const dotenv = require('dotenv');
+
+const env = dotenv.config().parsed;
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
@@ -28,10 +31,10 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {},
-          },
-        ],
-      },
+            options: {}
+          }
+        ]
+      }
     ]
   },
   plugins: [
@@ -41,7 +44,10 @@ module.exports = {
     new InterpolateHtmlPlugin({
       PUBLIC_URL: ''
     }),
-    new webpack.HashedModuleIdsPlugin()
+    new webpack.HashedModuleIdsPlugin(),
+    new webpack.EnvironmentPlugin({
+      GOOGLE_API_KEY: env.GOOGLE_API_KEY
+    })
   ],
   resolve: {
     modules: [path.resolve('./node_modules')],
@@ -66,6 +72,6 @@ module.exports = {
       warnings: true,
       publicPath: true
     },
-    historyApiFallback: true,
+    historyApiFallback: true
   }
 };
