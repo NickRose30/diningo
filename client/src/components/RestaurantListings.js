@@ -16,7 +16,7 @@ class RestaurantListings extends Component {
 
   render() {
     const { initialListings, searchResults } = this.props;
-    const listings = searchResults ? searchResults : initialListings;
+    const listings = searchResults ? searchResults.results : initialListings;
     const restaurantListings = listings ? listings.map((listing, i) => (
       <RestaurantCard {...listing} key={i} />
     )) : [];

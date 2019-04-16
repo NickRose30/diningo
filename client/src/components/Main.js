@@ -3,7 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 // components
 import Workspace from './Workspace';
 import PageNotFound from './PageNotFound';
-import Landing from './Landing';
+import Landing from '../containers/Landing';
 import RestaurantProfile from '../containers/RestaurantProfile';
 
 const renderWorkspace = Component => () => <Workspace Component={Component} />;
