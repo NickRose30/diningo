@@ -4,6 +4,7 @@ import * as R from 'ramda';
 import styled from 'styled-components';
 import GoogleMapReact from 'google-map-react';
 import { DefaultBtn } from '../sharedAssets';
+import { FaMapMarker } from 'react-icons/fa';
 import Stars from './Stars';
 import ReviewListings from './ReviewListings';
 import {
@@ -91,7 +92,7 @@ const HoursContainer = styled.div`
 
 const HoursSection = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const HoursHr = styled.hr`
@@ -114,11 +115,21 @@ const HourDetails = styled.div`
 
 const MapMarker = styled.div`
   font-weight: bold;
+  font-size: 14px;
   color: ${colorDefaultDarkOrange};
   text-shadow: 0 0 2px ${colorWhite};
 `;
 
-const MapComponent = ({ text }) => <MapMarker>{text}</MapMarker>;
+const MarkerIcon = styled(FaMapMarker)`
+  font-size: 18px;
+`;
+
+const MapComponent = ({ text }) => (
+  <MapMarker>
+    <MarkerIcon />
+    {text}
+  </MapMarker>
+);
 
 class RestaurantProfile extends Component {
   state = {
