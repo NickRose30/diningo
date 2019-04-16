@@ -8,7 +8,8 @@ import {
   colorDefaultDarkOrange,
   colorTransparentGray,
 } from '../vars';
-//components
+import { DefaultBtn } from '../sharedAssets';
+// components
 import Search from '../containers/Search';
 // images
 import Backdrop from '../images/alcohol-ale-bar.jpg';
@@ -52,18 +53,14 @@ const NavLink = styled(Link)`
   text-decoration: none;
 `;
 
-const AccountButton = styled(Link)`
-  text-decoration: none;
-  border: 2px solid ${props => (props.landing ? colorTransparentGray : colorWhite)};
-  margin: 10px;
-  color: ${colorWhite};
-  border-radius: 5px;
-  padding: 5px 20px;
+const AccountBtn = styled(DefaultBtn)`
+  border-color: ${props => (props.landing ? colorTransparentGray : colorWhite)};
+  color: ${colorWhite}
 
   :hover {
-    background-color: ${props => (props.landing ? colorTransparentGray : colorWhite)};
+    background-color: ${props =>
+      props.landing ? colorTransparentGray : colorWhite};
     color: ${props => (props.landing ? colorWhite : colorDefaultOrange)}
-    cursor: pointer;
   }
 `;
 
@@ -76,17 +73,19 @@ const Nav = props => {
         <div>
           <NavLink to='/'>About Us</NavLink>
           <NavLink to='/'>Contact Us</NavLink>
-          <AccountButton landing={isRoot} to='/'>
+          <AccountBtn landing={isRoot} to='/'>
             Log in
-          </AccountButton>
-          <AccountButton landing={isRoot} to='/'>
+          </AccountBtn>
+          <AccountBtn landing={isRoot} to='/'>
             Sign up
-          </AccountButton>
+          </AccountBtn>
         </div>
       </NavContainer>
-      {props.location.pathname === '/' && <Search landingRef={props.workspaceRef} />}
+      {props.location.pathname === '/' && (
+        <Search landingRef={props.workspaceRef} />
+      )}
     </LandingContainer>
-  )
+  );
 };
 
 export default withRouter(Nav);

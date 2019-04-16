@@ -13,30 +13,18 @@ Then cd into the client directory
 ### 2. Install dependencies
 
 ```
-npm install
-```
-If you get an error like 
-
-```
-npm ERR! Invalid dependency type requested
-```
-then you will need to install the dependencies with yarn.
-
-You can install yarn (on Mac) by running 
-
-```
-brew install yarn
-```
-and then install the dependencies by running the following
-
-```
-yarn install
-```
-```
-npm install @babel/plugin-proposal-class-properties
+npm run setup
 ```
 
-### 3. Run the app
+### 3. Create .env file
+
+Create a file called `.env` in the `client/` directory. Put in it:
+```
+GOOGLE_API_KEY=your_google_api_key
+```
+obviously replacing the 'your_google_api_key' part with your own google api key
+
+### 4. Run the app
 
 ```
 npm run start
