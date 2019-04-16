@@ -119,6 +119,8 @@ class RestaurantProfile extends Component {
   }
 
   render() {
+    const { match } = this.props;
+    
     const { image, title, address, fullDescription, stars, currentWait, lat, lng } =
       R.prop('profile', this.state) || {};
 
@@ -134,10 +136,7 @@ class RestaurantProfile extends Component {
               bootstrapURLKeys={{
                 key: process.env.GOOGLE_API_KEY
               }}
-              defaultCenter={{
-                lat,
-                lng
-              }}
+              defaultCenter={{ lat, lng }}
               defaultZoom={14}
             >
               <MapComponent lat={lat} lng={lng} text={title} />
@@ -148,7 +147,9 @@ class RestaurantProfile extends Component {
           <Header>
             <h1>{title}</h1>
             <ActionBtns>
-              <DefaultBtn to='#'>View Menu</DefaultBtn>
+              <DefaultBtn to={`/${match.params.restaurantId}/menu`}>
+                View Menu
+              </DefaultBtn>
               <DefaultBtn to='#'>Make Reservation</DefaultBtn>
             </ActionBtns>
           </Header>
