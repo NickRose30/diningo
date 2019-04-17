@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import 'css/react-tabs.css';
 import styled from 'styled-components';
 import { colorDefaultDarkOrange } from '../vars';
 
-const MenuTabs = styled(Tabs)`
-  color: ${colorDefaultDarkOrange};
+const Menu = styled(Tabs)`
+  width: 100%;
+  padding-top: 25px;
 `;
 
 class RestaurantMenu extends Component {
@@ -15,23 +16,28 @@ class RestaurantMenu extends Component {
 
   render() {
     return (
-      <MenuTabs>
+      <Menu>
         <TabList>
-          <Tab>Title 1</Tab>
-          <Tab>Title 2</Tab>
-          <Tab>Title 2</Tab>
-          <Tab>Title 2</Tab>
-          <Tab>Title 2</Tab>
-          <Tab>Title 2</Tab>
+          <Tab>Appetizers</Tab>
+          <Tab>Pasta</Tab>
+          <Tab>Seafood</Tab>
+          <Tab>Sandwiches</Tab>
+          <Tab>Sides</Tab>
+          <Tab>Drinks</Tab>
+          <Tab>Desserts</Tab>
         </TabList>
 
         <TabPanel>
-          <h2>Any content 1</h2>
+          <span>Shrimp Scampi</span>
+          <p>
+            This is the description of the meal that you are about to
+            consume.{' '}
+          </p>
         </TabPanel>
         <TabPanel>
           <h2>Any content 2</h2>
         </TabPanel>
-      </MenuTabs>
+      </Menu>
     );
   }
 }
