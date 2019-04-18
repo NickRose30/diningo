@@ -72,6 +72,7 @@ module.exports = {
       warnings: true,
       publicPath: true
     },
-    historyApiFallback: true
+    historyApiFallback: true,
+    public: 'diningoinc.com:80'
   }
 };
