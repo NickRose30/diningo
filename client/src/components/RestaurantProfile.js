@@ -137,7 +137,7 @@ class RestaurantProfile extends Component {
                 key: process.env.GOOGLE_API_KEY
               }}
               defaultCenter={{ lat, lng }}
-              defaultZoom={14}
+              defaultZoom={11}
             >
               <MapComponent lat={lat} lng={lng} text={title} />
             </GoogleMapReact>

@@ -116,8 +116,8 @@ export const fetchRestaurantProfile = id => dispatch => {
         sat: '11:00 AM - 12:00 AM',
         sun: '11:00 AM - 10:00 PM'
       },
-      lat: 42.3710769,
-      lng: -72.5015372
+      lat: 40.729269,
+      lng: -73.987361
     }
   });
 };
