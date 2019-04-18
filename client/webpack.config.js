@@ -73,6 +73,9 @@ module.exports = {
       publicPath: true
     },
     historyApiFallback: true,
-    public: 'diningoinc.com:80'
+    allowedHosts: [
+      'diningoinc.com',
+      'www.diningoinc.com',
+    ],
   }
 };
