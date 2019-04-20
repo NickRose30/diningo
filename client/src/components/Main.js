@@ -5,7 +5,7 @@ import Workspace from './Workspace';
 import PageNotFound from './PageNotFound';
 import Landing from '../containers/Landing';
 import RestaurantProfile from '../containers/RestaurantProfile';
-import RestaurantMenu from './RestaurantMenu';
+import RestaurantMenu from '../containers/RestaurantMenu';
 
 const renderWorkspace = Component => () => <Workspace Component={Component} />;
 

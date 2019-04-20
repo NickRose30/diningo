@@ -121,3 +121,80 @@ export const fetchRestaurantProfile = id => dispatch => {
     }
   });
 };
+
+export const fetchRestaurantMenu = id => dispatch => {
+  dispatch({
+    type: types.FETCH_RESTAURANT_MENU,
+    menu: {
+      appetizers: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      pasta: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      seafood: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      sandwiches: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      sides: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      drinks: [
+        {
+          item: 'Beer',
+          description: `Yum`,
+          price: 0.00,
+        },
+      ],
+      desserts: [
+        {
+          item: 'Cake',
+          description: `An item of soft, sweet food made from a mixture of flour, shortening, eggs, sugar, and other ingredients, baked and often decorated.`,
+          price: 12.49,
+        },
+      ],
+    }
+  });
+};
