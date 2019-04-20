@@ -116,8 +116,85 @@ export const fetchRestaurantProfile = id => dispatch => {
         sat: '11:00 AM - 12:00 AM',
         sun: '11:00 AM - 10:00 PM'
       },
-      lat: 42.3710769,
-      lng: -72.5015372
+      lat: 40.729269,
+      lng: -73.987361
+    }
+  });
+};
+
+export const fetchRestaurantMenu = id => dispatch => {
+  dispatch({
+    type: types.FETCH_RESTAURANT_MENU,
+    menu: {
+      appetizers: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      pasta: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      seafood: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      sandwiches: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      sides: [
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+      ],
+      drinks: [
+        {
+          item: 'Beer',
+          description: `Yum`,
+          price: 0.00,
+        },
+      ],
+      desserts: [
+        {
+          item: 'Cake',
+          description: `An item of soft, sweet food made from a mixture of flour, shortening, eggs, sugar, and other ingredients, baked and often decorated.`,
+          price: 12.49,
+        },
+      ],
     }
   });
 };

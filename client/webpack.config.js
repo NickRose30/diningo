@@ -10,6 +10,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: '[name].[hash].js'
   },
   optimization: {
@@ -34,6 +35,10 @@ module.exports = {
             options: {}
           }
         ]
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
@@ -52,8 +57,9 @@ module.exports = {
   resolve: {
     modules: [path.resolve('./node_modules')],
     alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
+      'react-dom': '@hot-loader/react-dom',
+      css: path.resolve('./public/css')
+    },
   },
   devServer: {
     stats: {

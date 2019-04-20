@@ -71,12 +71,12 @@ const Nav = props => {
       <NavContainer>
         <Logo to='/'>DININGO</Logo>
         <div>
-          <NavLink to='/'>About Us</NavLink>
-          <NavLink to='/'>Contact Us</NavLink>
-          <AccountBtn landing={isRoot} to='/'>
+          <NavLink to='#'>About Us</NavLink>
+          <NavLink to='#'>Contact Us</NavLink>
+          <AccountBtn landing={isRoot} to='#'>
             Log in
           </AccountBtn>
-          <AccountBtn landing={isRoot} to='/'>
+          <AccountBtn landing={isRoot} to='#'>
             Sign up
           </AccountBtn>
         </div>

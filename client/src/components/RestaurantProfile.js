@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import * as R from 'ramda';
-import styled from 'styled-components';
+// components
 import GoogleMapReact from 'google-map-react';
 import { DefaultBtn } from '../sharedAssets';
 import { FaMapMarker } from 'react-icons/fa';
 import Stars from './Stars';
 import ReviewListings from './ReviewListings';
+import RestaurantHours from './RestaurantHours';
+// styles
 import {
   colorGreen,
   colorYellow,
   colorRed,
   colorWhite,
   colorTransparentBlack,
-  colorDefaultOrange,
   colorDefaultDarkOrange,
-  colorBlack,
-  colorTransparentOrange,
 } from '../vars';
+import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
@@ -81,38 +81,6 @@ const GoogleMapsContainer = styled.div`
   width: 100%;
 `;
 
-const HoursContainer = styled.div`
-  max-width: 100%;
-  margin: 25px 0;
-  padding: 10px;
-  font-weight: bold;
-  border: 1px solid ${colorDefaultOrange};
-  color: ${colorBlack};
-`;
-
-const HoursSection = styled.div`
-  display: flex;
-  justify-content: space-around;
-`;
-
-const HoursHr = styled.hr`
-  border-color: ${colorTransparentOrange};
-`;
-
-const Hours = styled.p`
-  color: ${colorDefaultDarkOrange};
-  margin: 5px 0;
-`;
-
-const Days = styled.p`
-  margin: 5px 0;
-`;
-
-const HourDetails = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const MapMarker = styled.div`
   font-weight: bold;
   font-size: 14px;
@@ -151,50 +119,25 @@ class RestaurantProfile extends Component {
   }
 
   render() {
+    const { match } = this.props;
+    
     const { image, title, address, fullDescription, stars, currentWait, lat, lng } =
       R.prop('profile', this.state) || {};
 
-    const { mon, tue, wed, thu, fri, sat, sun } =
-      R.path(['profile', 'hours'], this.state) || {};
+    const hours = R.path(['profile', 'hours'], this.state);
       
     return (
       <Container>
         <LeftPanel>
           <ImageContainer src={image} />
-          <HoursContainer>
-            <div>Hours</div>
-            <HoursHr />
-            <HoursSection>
-              <HourDetails>
-                <Days>Monday:</Days>
-                <Days>Tuesday:</Days>
-                <Days>Wednesday:</Days>
-                <Days>Thursday:</Days>
-                <Days>Friday:</Days>
-                <Days>Saturday:</Days>
-                <Days>Sunday:</Days>
-              </HourDetails>
-              <HourDetails>
-                <Hours>{mon}</Hours>
-                <Hours>{tue}</Hours>
-                <Hours>{wed}</Hours>
-                <Hours>{thu}</Hours>
-                <Hours>{fri}</Hours>
-                <Hours>{sat}</Hours>
-                <Hours>{sun}</Hours>
-              </HourDetails>
-            </HoursSection>
-          </HoursContainer>
+          <RestaurantHours {...hours} />
           <GoogleMapsContainer>
             <GoogleMapReact
               bootstrapURLKeys={{
                 key: process.env.GOOGLE_API_KEY
               }}
-              defaultCenter={{
-                lat,
-                lng
-              }}
-              defaultZoom={14}
+              defaultCenter={{ lat, lng }}
+              defaultZoom={11}
             >
               <MapComponent lat={lat} lng={lng} text={title} />
             </GoogleMapReact>
@@ -204,7 +147,9 @@ class RestaurantProfile extends Component {
           <Header>
             <h1>{title}</h1>
             <ActionBtns>
-              <DefaultBtn to='#'>View Menu</DefaultBtn>
+              <DefaultBtn to={`/${match.params.restaurantId}/menu`}>
+                View Menu
+              </DefaultBtn>
               <DefaultBtn to='#'>Make Reservation</DefaultBtn>
             </ActionBtns>
           </Header>
