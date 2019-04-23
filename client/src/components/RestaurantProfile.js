@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import * as R from 'ramda';
 // components
-import GoogleMapReact from 'google-map-react';
+import GoogleMaps from './GoogleMaps';
 import { DefaultBtn } from '../sharedAssets';
-import { FaMapMarker } from 'react-icons/fa';
 import Stars from './Stars';
 import ReviewListings from './ReviewListings';
 import RestaurantHours from './RestaurantHours';
@@ -15,9 +14,11 @@ import {
   colorRed,
   colorWhite,
   colorTransparentBlack,
-  colorDefaultDarkOrange,
 } from '../vars';
 import styled from 'styled-components';
+
+const MAP_HEIGHT = 300;
+const MAP_WIDTH = 300;
 
 const Container = styled.div`
   display: flex;
@@ -77,27 +78,9 @@ const WaitTime = styled.span`
 `;
 
 const GoogleMapsContainer = styled.div`
-  height: 300px;
-  width: 100%;
+  height: ${MAP_HEIGHT}px;
+  width: ${MAP_WIDTH}px;
 `;
-
-const MapMarker = styled.div`
-  font-weight: bold;
-  font-size: 14px;
-  color: ${colorDefaultDarkOrange};
-  text-shadow: 0 0 2px ${colorWhite};
-`;
-
-const MarkerIcon = styled(FaMapMarker)`
-  font-size: 18px;
-`;
-
-const MapComponent = ({ text }) => (
-  <MapMarker>
-    <MarkerIcon />
-    {text}
-  </MapMarker>
-);
 
 class RestaurantProfile extends Component {
   state = {
@@ -124,7 +107,7 @@ class RestaurantProfile extends Component {
     const { image, title, address, fullDescription, stars, currentWait, lat, lng } =
       R.prop('profile', this.state) || {};
 
-    const hours = R.path(['profile', 'hours'], this.state);
+    const hours = R.path(['profile', 'hours'], this.state)
       
     return (
       <Container>
@@ -132,15 +115,7 @@ class RestaurantProfile extends Component {
           <ImageContainer src={image} />
           <RestaurantHours {...hours} />
           <GoogleMapsContainer>
-            <GoogleMapReact
-              bootstrapURLKeys={{
-                key: process.env.GOOGLE_API_KEY
-              }}
-              defaultCenter={{ lat, lng }}
-              defaultZoom={11}
-            >
-              <MapComponent lat={lat} lng={lng} text={title} />
-            </GoogleMapReact>
+            <GoogleMaps height={MAP_HEIGHT} width={MAP_WIDTH}/>
           </GoogleMapsContainer>
         </LeftPanel>
         <RightPanel>
