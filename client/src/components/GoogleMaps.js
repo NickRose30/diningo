@@ -7,6 +7,10 @@ const GoogleMapsContainer = styled.div`
   width: ${props => props.width}px;
 `;
 
+const MapComp = styled(Map)`
+  position: relative!important;
+`;
+
 class GoogleMaps extends Component {
   render() {
     const { height, width, points, currentLocation, google } = this.props;
@@ -22,7 +26,7 @@ class GoogleMaps extends Component {
 
     return (
       <GoogleMapsContainer height={height} width={width}>
-        <Map
+        <MapComp
           centerAroundCurrentLocation={currentLocation}
           initialCenter={currentLocation ? {} : initialCenter}
           google={google}
@@ -30,7 +34,7 @@ class GoogleMaps extends Component {
           style={{ width: `${height}px`, height: `${width}px` }}
         >
           {markers}
-        </Map>
+        </MapComp>
       </GoogleMapsContainer>
     );
   }

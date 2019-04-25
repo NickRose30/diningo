@@ -15,7 +15,9 @@ export const fetchInitialListings = () => dispatch => {
         descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
           veniam, quis nostrud exercitation ullamco.`,
-        stars: '4.5'
+        stars: '4.5',
+        lat: 40.729269,
+        lng: -73.987361
       },
       {
         id: '5678',
@@ -26,7 +28,10 @@ export const fetchInitialListings = () => dispatch => {
         descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
-        stars: '1.5'
+        stars: '1.5',
+        lat: 40.229269,
+        lng: -72.987361
+        
       },
       {
         id: '9101',
@@ -37,7 +42,9 @@ export const fetchInitialListings = () => dispatch => {
         descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
-        stars: '3.5'
+        stars: '3.5',
+        lat: 41.029269,
+        lng: -74.087361
       }
     ]
   });
@@ -58,7 +65,9 @@ export const fetchSearchResults = input => dispatch => {
           descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
             veniam, quis nostrud exercitation ullamco.`,
-          stars: '4.5'
+          stars: '4.5',
+          lat: 40.329269,
+          lng: -73.387361
         },
         {
           id: '5678',
@@ -69,7 +78,9 @@ export const fetchSearchResults = input => dispatch => {
           descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
           veniam, quis nostrud exercitation ullamco.`,
-          stars: '1.5'
+          stars: '1.5',
+          lat: 41.729269,
+          lng: -72.987361
         },
         {
           id: '9101',
@@ -80,7 +91,9 @@ export const fetchSearchResults = input => dispatch => {
           descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
           veniam, quis nostrud exercitation ullamco.`,
-          stars: '3.5'
+          stars: '3.5',
+          lat: 40.529269,
+          lng: -73.087361
         }
       ]
     }

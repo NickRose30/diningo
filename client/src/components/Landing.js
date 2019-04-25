@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import RestaurantListings from '../containers/RestaurantListings';
+import ListingAside from '../containers/ListingAside';
 import styled from 'styled-components';
 import * as R from 'ramda';
 
 const ListingHeader = styled.h2`
   text-align: center;
+`;
+
+const ListingContainer = styled.div`
+  display: flex;
 `;
 
 class Landing extends Component {
@@ -17,7 +22,10 @@ class Landing extends Component {
           {searchTerm ? `Search results for: ${searchTerm}` :
             'Recommended For You'}
         </ListingHeader>
-        <RestaurantListings />
+        <ListingContainer>
+          <ListingAside />
+          <RestaurantListings />
+        </ListingContainer>
       </div>
     );
   }
