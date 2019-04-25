@@ -77,11 +77,6 @@ const WaitTime = styled.span`
   text-shadow: 0 1px 6px ${colorTransparentBlack};
 `;
 
-const GoogleMapsContainer = styled.div`
-  height: ${MAP_HEIGHT}px;
-  width: ${MAP_WIDTH}px;
-`;
-
 class RestaurantProfile extends Component {
   state = {
     profile: {},
@@ -107,16 +102,20 @@ class RestaurantProfile extends Component {
     const { image, title, address, fullDescription, stars, currentWait, lat, lng } =
       R.prop('profile', this.state) || {};
 
-    const hours = R.path(['profile', 'hours'], this.state)
+    const hours = R.path(['profile', 'hours'], this.state);
+
+    const points = [{ lat, lng }];
       
     return (
       <Container>
         <LeftPanel>
           <ImageContainer src={image} />
           <RestaurantHours {...hours} />
-          <GoogleMapsContainer>
-            <GoogleMaps height={MAP_HEIGHT} width={MAP_WIDTH}/>
-          </GoogleMapsContainer>
+          <GoogleMaps
+            height={MAP_HEIGHT}
+            width={MAP_WIDTH}
+            points={points}
+          />
         </LeftPanel>
         <RightPanel>
           <Header>

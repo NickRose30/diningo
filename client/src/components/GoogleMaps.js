@@ -1,22 +1,37 @@
 import React, { Component } from 'react';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import styled from 'styled-components';
+
+const GoogleMapsContainer = styled.div`
+  height: ${props => props.height}px;
+  width: ${props => props.width}px;
+`;
 
 class GoogleMaps extends Component {
   render() {
+    const { height, width, points, currentLocation, google } = this.props;
+
+    const markers = points.map((point, i) => {
+      const { lat, lng } = point;
+      return (
+        <Marker position={{ lat: lat, lng: lng }} key={i} />
+      )}
+    );
+
+    const initialCenter = { lat: points[0].lat, lng: points[0].lng }
+
     return (
-      <Map 
-        google={this.props.google} 
-        zoom={10}
-        style={{width: `${this.props.height}px`, height: `${this.props.width}px`}}
-      >
-        <Marker name={'Current location'} />
-        <InfoWindow>
-            <div>
-              <h1>this is something</h1>
-            </div>
-        </InfoWindow>
-      </Map>
+      <GoogleMapsContainer height={height} width={width}>
+        <Map
+          centerAroundCurrentLocation={currentLocation}
+          initialCenter={currentLocation ? {} : initialCenter}
+          google={google}
+          zoom={currentLocation ? 8 : 10}
+          style={{ width: `${height}px`, height: `${width}px` }}
+        >
+          {markers}
+        </Map>
+      </GoogleMapsContainer>
     );
   }
 }
