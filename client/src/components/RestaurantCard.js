@@ -5,6 +5,8 @@ import Stars from './Stars';
 import styled from 'styled-components';
 import { colorHoverGray, colorBorderGray } from '../vars';
 
+const MAX_DESCRIPTION_CHARS = 370;
+
 const Container = styled.div`
   display: flex;
   margin: 20px;
@@ -16,8 +18,8 @@ const Container = styled.div`
 `;
 
 const DisplayImage = styled.img`
-  height: 150px;
-  width: 200px;
+  height: 180px;
+  width: 220px;
   /* change fill to cover if the pictures come out distorted */
   object-fit: fill;
 `;
@@ -49,6 +51,8 @@ const Description = styled.p`
   padding-top: 10px;
 `;
 
+const truncate = inputStr => (inputStr.length > MAX_DESCRIPTION_CHARS) ? inputStr.substr(0, MAX_DESCRIPTION_CHARS - 1) + '...' : inputStr;
+
 const RestaurantCard = ({
   id,
   image,
@@ -66,7 +70,7 @@ const RestaurantCard = ({
         <Stars num={stars} />
       </RestaurantHeader>
       <RestaurantAddress>{address}</RestaurantAddress>
-      <Description>{descriptionSnippet}</Description>
+      <Description>{truncate(descriptionSnippet)}</Description>
     </DescriptionContainer>
   </Container>
 );

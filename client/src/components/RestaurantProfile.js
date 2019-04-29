@@ -7,6 +7,7 @@ import { DefaultBtn } from '../sharedAssets';
 import Stars from './Stars';
 import ReviewListings from './ReviewListings';
 import RestaurantHours from './RestaurantHours';
+import ProfileImages from './ProfileImages';
 // styles
 import {
   colorGreen,
@@ -36,14 +37,6 @@ const RightPanel = styled.div`
   flex-direction: column;
   flex-grow: 2;
   display: flex;
-`;
-
-const ImageContainer = styled.div`
-  width: 300px;
-  height: 300px;
-  background-image: url(${props => props.src});
-  background-position: center;
-  background-size: cover;
 `;
 
 const Header = styled.div`
@@ -99,8 +92,10 @@ class RestaurantProfile extends Component {
   render() {
     const { match } = this.props;
     
-    const { image, title, address, fullDescription, stars, currentWait, lat, lng } =
+    const { image, moreImages, title, address, fullDescription, stars, currentWait, lat, lng } =
       R.prop('profile', this.state) || {};
+
+    const images = [image].concat(moreImages);
 
     const hours = R.path(['profile', 'hours'], this.state);
 
@@ -109,7 +104,7 @@ class RestaurantProfile extends Component {
     return (
       <Container>
         <LeftPanel>
-          <ImageContainer src={image} />
+          <ProfileImages images={images} />
           <RestaurantHours {...hours} />
           <GoogleMaps
             height={MAP_HEIGHT}
