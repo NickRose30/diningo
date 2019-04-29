@@ -14,8 +14,12 @@ export const fetchInitialListings = () => dispatch => {
         address: '148 South East Street, Amherst MA 01002',
         descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
           veniam, quis nostrud exercitation ullamco.`,
-        stars: '4.5'
+        stars: '4.5',
+        lat: 40.729269,
+        lng: -73.987361
       },
       {
         id: '5678',
@@ -26,7 +30,10 @@ export const fetchInitialListings = () => dispatch => {
         descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
-        stars: '1.5'
+        stars: '1.5',
+        lat: 40.229269,
+        lng: -72.987361
+        
       },
       {
         id: '9101',
@@ -37,8 +44,52 @@ export const fetchInitialListings = () => dispatch => {
         descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
         veniam, quis nostrud exercitation ullamco.`,
-        stars: '3.5'
-      }
+        stars: '3.5',
+        lat: 41.029269,
+        lng: -74.087361
+      },
+      {
+        id: '5678',
+        image:
+          'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
+        title: 'Restaurant Two',
+        address: '148 South East Street, Amherst MA 01003',
+        descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco.`,
+        stars: '1.5',
+        lat: 38.229269,
+        lng: -72.987361
+        
+      },
+      {
+        id: '5678',
+        image:
+          'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
+        title: 'Restaurant Two',
+        address: '148 South East Street, Amherst MA 01003',
+        descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco.`,
+        stars: '1.5',
+        lat: 40.229269,
+        lng: -70.987361
+        
+      },
+      {
+        id: '5678',
+        image:
+          'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
+        title: 'Restaurant Two',
+        address: '148 South East Street, Amherst MA 01003',
+        descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco.`,
+        stars: '1.5',
+        lat: 41.229269,
+        lng: -71.987361
+        
+      },
     ]
   });
 }
@@ -58,7 +109,9 @@ export const fetchSearchResults = input => dispatch => {
           descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
             veniam, quis nostrud exercitation ullamco.`,
-          stars: '4.5'
+          stars: '4.5',
+          lat: 40.329269,
+          lng: -73.387361
         },
         {
           id: '5678',
@@ -69,7 +122,9 @@ export const fetchSearchResults = input => dispatch => {
           descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
           veniam, quis nostrud exercitation ullamco.`,
-          stars: '1.5'
+          stars: '1.5',
+          lat: 41.729269,
+          lng: -72.987361
         },
         {
           id: '9101',
@@ -80,7 +135,9 @@ export const fetchSearchResults = input => dispatch => {
           descriptionSnippet: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim
           veniam, quis nostrud exercitation ullamco.`,
-          stars: '3.5'
+          stars: '3.5',
+          lat: 40.529269,
+          lng: -73.087361
         }
       ]
     }
@@ -94,6 +151,12 @@ export const fetchRestaurantProfile = id => dispatch => {
       id: '9876',
       image:
         'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
+      moreImages: [
+        'https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg',
+        'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
+        'https://media-cdn.tripadvisor.com/media/photo-s/0e/cc/0a/dc/restaurant-chocolat.jpg',
+        'https://thimpress.com/wp-content/uploads/2018/04/41993-das-loft-sofitel-19to1.jpeg',
+      ],
       title: 'Restaurant One',
       address: '148 South East Street, Amherst MA 01002',
       fullDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

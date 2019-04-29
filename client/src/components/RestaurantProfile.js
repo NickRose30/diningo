@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import * as R from 'ramda';
 // components
-import GoogleMapReact from 'google-map-react';
+import GoogleMaps from './GoogleMaps';
 import { DefaultBtn } from '../sharedAssets';
-import { FaMapMarker } from 'react-icons/fa';
 import Stars from './Stars';
 import ReviewListings from './ReviewListings';
 import RestaurantHours from './RestaurantHours';
+import ProfileImages from './ProfileImages';
 // styles
 import {
   colorGreen,
@@ -15,9 +15,11 @@ import {
   colorRed,
   colorWhite,
   colorTransparentBlack,
-  colorDefaultDarkOrange,
 } from '../vars';
 import styled from 'styled-components';
+
+const MAP_HEIGHT = 300;
+const MAP_WIDTH = 300;
 
 const Container = styled.div`
   display: flex;
@@ -35,14 +37,6 @@ const RightPanel = styled.div`
   flex-direction: column;
   flex-grow: 2;
   display: flex;
-`;
-
-const ImageContainer = styled.div`
-  width: 300px;
-  height: 300px;
-  background-image: url(${props => props.src});
-  background-position: center;
-  background-size: cover;
 `;
 
 const Header = styled.div`
@@ -76,29 +70,6 @@ const WaitTime = styled.span`
   text-shadow: 0 1px 6px ${colorTransparentBlack};
 `;
 
-const GoogleMapsContainer = styled.div`
-  height: 300px;
-  width: 100%;
-`;
-
-const MapMarker = styled.div`
-  font-weight: bold;
-  font-size: 14px;
-  color: ${colorDefaultDarkOrange};
-  text-shadow: 0 0 2px ${colorWhite};
-`;
-
-const MarkerIcon = styled(FaMapMarker)`
-  font-size: 18px;
-`;
-
-const MapComponent = ({ text }) => (
-  <MapMarker>
-    <MarkerIcon />
-    {text}
-  </MapMarker>
-);
-
 class RestaurantProfile extends Component {
   state = {
     profile: {},
@@ -121,27 +92,25 @@ class RestaurantProfile extends Component {
   render() {
     const { match } = this.props;
     
-    const { image, title, address, fullDescription, stars, currentWait, lat, lng } =
+    const { image, moreImages, title, address, fullDescription, stars, currentWait, lat, lng } =
       R.prop('profile', this.state) || {};
 
+    const images = [image].concat(moreImages);
+
     const hours = R.path(['profile', 'hours'], this.state);
+
+    const points = [{ lat, lng }];
       
     return (
       <Container>
         <LeftPanel>
-          <ImageContainer src={image} />
+          <ProfileImages images={images} />
           <RestaurantHours {...hours} />
-          <GoogleMapsContainer>
-            <GoogleMapReact
-              bootstrapURLKeys={{
-                key: process.env.GOOGLE_API_KEY
-              }}
-              defaultCenter={{ lat, lng }}
-              defaultZoom={11}
-            >
-              <MapComponent lat={lat} lng={lng} text={title} />
-            </GoogleMapReact>
-          </GoogleMapsContainer>
+          <GoogleMaps
+            height={MAP_HEIGHT}
+            width={MAP_WIDTH}
+            points={points}
+          />
         </LeftPanel>
         <RightPanel>
           <Header>
