@@ -12,6 +12,14 @@ const RATING = 3;
 
 const AsideContainer = styled.div`
   margin-top: 20px;
+  ${props => props.isSticky ?
+    `position: fixed;
+    top: 15px;` : ''
+  }
+  ${props => props.hidden ?
+    `visibility: hidden;
+    display: block` : ''
+  }
 `;
 
 const UpperAside = styled.div`
@@ -41,7 +49,7 @@ class ListingAside extends Component {
   handleSelection = newSelection => e => {
     e.preventDefault();
     this.setState({ selectedSort: newSelection });
-  }
+  };
 
   render() {
     const points = this.props.results ? this.props.results.map(listing => (
@@ -49,7 +57,7 @@ class ListingAside extends Component {
     )) : [];
 
     return (
-      <AsideContainer>
+      <AsideContainer isSticky={this.props.isSticky} hidden={this.props.hidden}>
         <UpperAside>
           <span>Sort by:</span>
           <SortBtn
