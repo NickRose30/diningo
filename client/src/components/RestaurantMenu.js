@@ -11,6 +11,10 @@ const Menu = styled(Tabs)`
   padding-top: 25px;
 `;
 
+const ContentPanel = styled(TabPanel)`
+  margin: 0 15px;
+`;
+
 class RestaurantMenu extends Component {
   state = {
     menu: {},
@@ -33,7 +37,7 @@ class RestaurantMenu extends Component {
 
   toTabPanel = (val, key) => {
     const contents = val.map((menuItem, i) => <MenuItem {...menuItem} key={i} />);
-    return <TabPanel key={key}>{contents}</TabPanel>;
+    return <ContentPanel key={key}>{contents}</ContentPanel>;
   }
 
   capitalize = R.compose(
