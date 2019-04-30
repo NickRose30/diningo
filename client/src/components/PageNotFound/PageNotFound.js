@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colorDefaultOrange } from '../vars';
+import { colorDefaultOrange } from '../../vars';
 
 const Page = styled.div`
   width: 100%;

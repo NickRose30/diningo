@@ -7,12 +7,12 @@ import {
   colorDefaultOrange,
   colorDefaultDarkOrange,
   colorTransparentGray,
-} from '../vars';
-import { DefaultBtn } from '../sharedAssets';
+} from '../../vars';
+import { DefaultBtn } from '../../sharedAssets';
 // components
-import Search from '../containers/Search';
+import Search from '../../containers/Nav/Search';
 // images
-import Backdrop from '../images/alcohol-ale-bar.jpg';
+import Backdrop from '../../images/alcohol-ale-bar.jpg';
 
 const LandingContainer = styled.div`
   display: flex;

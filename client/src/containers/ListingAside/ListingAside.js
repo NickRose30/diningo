@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ListingAside from '../components/ListingAside';
+import ListingAside from '../../components/ListingAside/ListingAside';
 import * as R from 'ramda';
 
 const mapStateToProps = state => ({

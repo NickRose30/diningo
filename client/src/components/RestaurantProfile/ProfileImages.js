@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { colorTransparentBlack } from '../vars';
+import { colorTransparentBlack } from '../../vars';
 import { IoMdArrowDropright, IoMdArrowDropleft } from 'react-icons/io';
 
 const SectionContainer = styled.div`

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import * as R from 'ramda';
 // components
-import GoogleMaps from './GoogleMaps';
-import { DefaultBtn } from '../sharedAssets';
-import Stars from './Stars';
-import ReviewListings from './ReviewListings';
+import GoogleMaps from '../GoogleMaps/GoogleMaps';
+import { DefaultBtn } from '../../sharedAssets';
+import Stars from '../Stars/Stars';
+import ReviewListings from '../Reviews/ReviewListings';
 import RestaurantHours from './RestaurantHours';
 import ProfileImages from './ProfileImages';
 // styles
@@ -15,7 +15,7 @@ import {
   colorRed,
   colorWhite,
   colorTransparentBlack,
-} from '../vars';
+} from '../../vars';
 import styled from 'styled-components';
 
 const MAP_HEIGHT = 300;

@@ -2,10 +2,10 @@ import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 // components
 import Workspace from './Workspace';
-import PageNotFound from './PageNotFound';
-import Landing from '../containers/Landing';
-import RestaurantProfile from '../containers/RestaurantProfile';
-import RestaurantMenu from '../containers/RestaurantMenu';
+import PageNotFound from './PageNotFound/PageNotFound';
+import Landing from '../containers/Landing/Landing';
+import RestaurantProfile from '../containers/RestaurantProfile/RestaurantProfile';
+import RestaurantMenu from '../containers/Menu/RestaurantMenu';
 
 const renderWorkspace = Component => () => <Workspace Component={Component} />;
 

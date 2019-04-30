@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colorDefaultOrange } from '../vars';
-import { DefaultBtn } from '../sharedAssets';
+import { colorDefaultOrange } from '../../vars';
+import { DefaultBtn } from '../../sharedAssets';
 
 const ListingsContainer = styled.div`
   width: 100%;

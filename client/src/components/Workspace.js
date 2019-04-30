@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 // components
-import Nav from './Nav';
+import Nav from './Nav/Nav';
 
 const Container = styled.div`
   margin: 0 30px;

@@ -5,7 +5,7 @@ import {
   colorDefaultDarkOrange,
   colorBlack,
   colorTransparentOrange
-} from '../vars';
+} from '../../vars';
 
 const HoursContainer = styled.div`
   max-width: 100%;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colorDefaultDarkOrange } from '../vars';
+import { colorDefaultDarkOrange } from '../../vars';
 
 const Container = styled.div`
   border-bottom: 1px solid ${colorDefaultDarkOrange};
