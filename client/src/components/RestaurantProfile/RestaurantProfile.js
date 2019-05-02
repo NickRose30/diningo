@@ -78,6 +78,7 @@ class RestaurantProfile extends Component {
   componentDidMount() {
     const { restaurantId } = this.props.match.params;
     this.props.fetchRestaurantProfile(restaurantId);
+    this.props.fetchRestaurantReviews(restaurantId);
   }
 
   static getDerivedStateFromProps(newProps, state) {
@@ -92,8 +93,18 @@ class RestaurantProfile extends Component {
   render() {
     const { match } = this.props;
     
-    const { image, moreImages, title, address, fullDescription, stars, currentWait, lat, lng } =
-      R.prop('profile', this.state) || {};
+    const { 
+      image,
+      moreImages,
+      title,
+      address,
+      fullDescription,
+      stars,
+      currentWait,
+      lat,
+      lng,
+      reviews,
+    } = R.prop('profile', this.state) || {};
 
     const images = [image].concat(moreImages);
 
@@ -131,7 +142,7 @@ class RestaurantProfile extends Component {
             </WaitTimeContainer>
           </StarsAndWaitTime>
           <p>{fullDescription}</p>
-          <ReviewListings />
+          <ReviewListings reviews={reviews} />
         </RightPanel>
       </Container>
     );

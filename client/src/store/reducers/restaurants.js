@@ -10,8 +10,11 @@ const restaurants = (state = {}, action) => {
     case types.FETCH_RESTAURANT_PROFILE:
       return { ...state, selectedRestaurant: action.profile };
     case types.FETCH_RESTAURANT_MENU:
-      const lens = R.lensPath(['selectedRestaurant', 'menu']);
-      return R.set(lens, action.menu, state);
+      const menuLens = R.lensPath(['selectedRestaurant', 'menu']);
+      return R.set(menuLens, action.menu, state);
+    case types.FETCH_RESTAURANT_REVIEWS:
+      const reviewsLens = R.lensPath(['selectedRestaurant', 'reviews']);
+      return R.set(reviewsLens, action.reviews, state);
     default:
       return state;
   }

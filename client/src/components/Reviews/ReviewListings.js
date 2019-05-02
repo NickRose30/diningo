@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colorDefaultOrange } from '../../vars';
+import ReviewCard from './ReviewCard';
 import { DefaultBtn } from '../../sharedAssets';
 
 const ListingsContainer = styled.div`
   width: 100%;
-  flex-grow: 2;
-  border: 1px solid ${colorDefaultOrange};
 `;
 
 const Header = styled.div`
@@ -15,13 +13,20 @@ const Header = styled.div`
   justify-content: space-between;
 `;
 
-const ReviewListings = props => (
-  <ListingsContainer>
-    <Header>
-      <h3>Reviews</h3>
-      <DefaultBtn to='#'>Leave a review</DefaultBtn>
-    </Header>
-  </ListingsContainer>
-);
+const ReviewListings = ({ reviews }) => {
+  const reviewCards = reviews ? reviews.map((review, i) => (
+    <ReviewCard {...review} key={i} />
+  )) : [];
+
+  return (
+    <ListingsContainer>
+      <Header>
+        <h3>Reviews</h3>
+        <DefaultBtn to='#'>Leave a review</DefaultBtn>
+      </Header>
+      {reviewCards}
+    </ListingsContainer>
+  );
+};
 
 export default ReviewListings;

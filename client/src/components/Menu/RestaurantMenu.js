@@ -6,6 +6,10 @@ import 'css/react-tabs.css';
 import styled from 'styled-components';
 import MenuItem from './MenuItem';
 
+const Container = styled.div`
+  width: 100%;
+`;
+
 const Menu = styled(Tabs)`
   width: 100%;
   padding-top: 25px;

@@ -261,3 +261,32 @@ export const fetchRestaurantMenu = id => dispatch => {
     }
   });
 };
+
+export const fetchRestaurantReviews = id => dispatch => {
+  dispatch({
+    type: types.FETCH_RESTAURANT_REVIEWS,
+    reviews: [
+      { 
+        username: 'Nickrose30',
+        time: 'Fri April 5th, 1997 11:19 AM',
+        stars: 2,
+        review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.`,
+      },
+      { 
+        username: 'Nickrose30',
+        time: 'Fri April 5th, 1997 11:20 AM',
+        stars: 3.5,
+        review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.`,
+      },
+      {
+        username: 'Nickrose30',
+        time: 'Fri April 5th, 1997 11:21 AM',
+        stars: 5,
+        review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
+      },
+    ],
+  });
+};
