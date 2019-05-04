@@ -29,6 +29,10 @@ const OptionPanel = styled.form`
   align-items: center;
 `;
 
+const Title = styled.h3`
+  text-align: center;
+`;
+
 const MiddleHr = styled.hr`
   width: 1px;
   border: none;
@@ -102,7 +106,7 @@ class ReviewListings extends Component {
         <Modal open={this.state.open} onClose={this.onCloseModal} center>
           <ReviewContainer>
             <OptionPanel>
-              <h3>Please log in to view your recent orders.</h3>
+              <Title>Please log in to view your recent orders.</Title>
               <Avatar />
               <InputContainer>
                 <label>Username</label>
@@ -116,7 +120,7 @@ class ReviewListings extends Component {
             </OptionPanel>
             <MiddleHr />
             <OptionPanel>
-              <h3>Enter the confirmation number on your receipt to leave a review.</h3>
+              <Title>Enter the confirmation number on your receipt to leave a review.</Title>
               <InputContainer>
                 <label>Confirmation Number</label>
                 <Input type='text' />
