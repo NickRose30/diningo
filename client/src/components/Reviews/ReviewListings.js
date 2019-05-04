@@ -24,7 +24,7 @@ const ReviewContainer = styled.div`
 const OptionPanel = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: auto;
   flex: 1 1 0;
   align-items: center;
 `;
@@ -59,7 +59,7 @@ const Avatar = styled(IoMdContact)`
   color: ${colorLightGray};
 `;
 
-const LoginBtn = styled.button`
+const ActionBtn = styled.button`
   background-color: ${colorDefaultOrange};
   width: 100%;
   color: ${colorWhite};
@@ -112,12 +112,16 @@ class ReviewListings extends Component {
                 <label>Password</label>
                 <Input type='password' />
               </InputContainer>
-              <LoginBtn>Login</LoginBtn>
+              <ActionBtn>Login</ActionBtn>
             </OptionPanel>
             <MiddleHr />
             <OptionPanel>
               <h3>Enter the confirmation number on your receipt to leave a review.</h3>
-              <input type='text' />
+              <InputContainer>
+                <label>Confirmation Number</label>
+                <Input type='text' />
+              </InputContainer>
+              <ActionBtn>Leave a review</ActionBtn>
             </OptionPanel>
           </ReviewContainer>
         </Modal>
