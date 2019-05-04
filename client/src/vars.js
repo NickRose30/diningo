@@ -13,6 +13,7 @@ export const colorGreen = '#008000';
 export const colorYellow = '#f1f116';
 export const colorRed = '#ff0000';
 export const colorTransparentOrange = '#ffcf63e0';
+export const colorLightGray = '#a2a1a1';
 
 // fonts
 export const defaultFont = 'arial, sans-serif';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import scrollToComponent from 'react-scroll-to-component';
-import { colorWhite, colorTransparentGray2, colorTransparentBlack } from '../vars';
+import { colorWhite, colorTransparentGray2, colorTransparentBlack } from '../../vars';
 
 const SearchForm = styled.form`
   margin: auto auto;

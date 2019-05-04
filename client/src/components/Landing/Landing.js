@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import RestaurantListings from '../containers/RestaurantListings';
-import ListingAside from '../containers/ListingAside';
+import RestaurantListings from '../../containers/RestaurantListings/RestaurantListings';
+import ListingAside from '../../containers/ListingAside/ListingAside';
 import styled from 'styled-components';
 import * as R from 'ramda';
 

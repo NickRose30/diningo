@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from 'react-icons/io';
-import { colorDefaultOrange } from '../vars';
+import { colorDefaultOrange } from '../../vars';
 
 const starStyles = `
   color: ${colorDefaultOrange};

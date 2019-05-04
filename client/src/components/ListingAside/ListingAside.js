@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import GoogleMaps from './GoogleMaps';
+import GoogleMaps from '../GoogleMaps/GoogleMaps';
 import * as R from 'ramda';
 import styled from 'styled-components';
-import { DefaultBtn } from '../sharedAssets';
-import { colorDefaultDarkOrange, colorDefaultOrange, colorWhite } from '../vars';
+import { DefaultBtn } from '../../sharedAssets';
+import { colorDefaultDarkOrange, colorDefaultOrange, colorWhite } from '../../vars';
 
 const POPULARITY = 0;
 const LOCATION = 1;

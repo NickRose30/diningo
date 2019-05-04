@@ -1,9 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Stars from './Stars';
+import Stars from '../Stars/Stars';
 // styles
 import styled from 'styled-components';
-import { colorHoverGray, colorBorderGray } from '../vars';
+import { colorHoverGray, colorBorderGray } from '../../vars';
 
 const MAX_DESCRIPTION_CHARS = 370;
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import RestaurantListings from '../components/RestaurantListings';
-import { fetchInitialListings } from '../store/actions/restaurants';
+import RestaurantListings from '../../components/RestaurantListings/RestaurantListings';
+import { fetchInitialListings } from '../../store/actions/restaurants';
 
 const mapStateToProps = state => ({
   initialListings: state.restaurants.initialListings,

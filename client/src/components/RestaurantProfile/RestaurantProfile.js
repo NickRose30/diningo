@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import * as R from 'ramda';
 // components
-import GoogleMaps from './GoogleMaps';
-import { DefaultBtn } from '../sharedAssets';
-import Stars from './Stars';
-import ReviewListings from './ReviewListings';
+import GoogleMaps from '../GoogleMaps/GoogleMaps';
+import { DefaultBtn } from '../../sharedAssets';
+import Stars from '../Stars/Stars';
+import ReviewListings from '../Reviews/ReviewListings';
 import RestaurantHours from './RestaurantHours';
 import ProfileImages from './ProfileImages';
 // styles
@@ -15,7 +15,7 @@ import {
   colorRed,
   colorWhite,
   colorTransparentBlack,
-} from '../vars';
+} from '../../vars';
 import styled from 'styled-components';
 
 const MAP_HEIGHT = 300;
@@ -78,6 +78,7 @@ class RestaurantProfile extends Component {
   componentDidMount() {
     const { restaurantId } = this.props.match.params;
     this.props.fetchRestaurantProfile(restaurantId);
+    this.props.fetchRestaurantReviews(restaurantId);
   }
 
   static getDerivedStateFromProps(newProps, state) {
@@ -92,8 +93,18 @@ class RestaurantProfile extends Component {
   render() {
     const { match } = this.props;
     
-    const { image, moreImages, title, address, fullDescription, stars, currentWait, lat, lng } =
-      R.prop('profile', this.state) || {};
+    const { 
+      image,
+      moreImages,
+      title,
+      address,
+      fullDescription,
+      stars,
+      currentWait,
+      lat,
+      lng,
+      reviews,
+    } = R.prop('profile', this.state) || {};
 
     const images = [image].concat(moreImages);
 
@@ -131,7 +142,7 @@ class RestaurantProfile extends Component {
             </WaitTimeContainer>
           </StarsAndWaitTime>
           <p>{fullDescription}</p>
-          <ReviewListings />
+          <ReviewListings reviews={reviews} />
         </RightPanel>
       </Container>
     );

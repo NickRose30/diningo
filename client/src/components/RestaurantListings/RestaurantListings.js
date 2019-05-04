@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RestaurantCard from './RestaurantCard';
+import RestaurantCard from '../RestaurantCard/RestaurantCard';
 import styled from 'styled-components';
 
 const ListingContainer = styled.div`

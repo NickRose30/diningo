@@ -6,9 +6,17 @@ import 'css/react-tabs.css';
 import styled from 'styled-components';
 import MenuItem from './MenuItem';
 
+const Container = styled.div`
+  width: 100%;
+`;
+
 const Menu = styled(Tabs)`
   width: 100%;
   padding-top: 25px;
+`;
+
+const ContentPanel = styled(TabPanel)`
+  margin: 0 15px;
 `;
 
 class RestaurantMenu extends Component {
@@ -33,7 +41,7 @@ class RestaurantMenu extends Component {
 
   toTabPanel = (val, key) => {
     const contents = val.map((menuItem, i) => <MenuItem {...menuItem} key={i} />);
-    return <TabPanel key={key}>{contents}</TabPanel>;
+    return <ContentPanel key={key}>{contents}</ContentPanel>;
   }
 
   capitalize = R.compose(

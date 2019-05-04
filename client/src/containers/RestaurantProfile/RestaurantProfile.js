@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import RestaurantProfile from '../components/RestaurantProfile';
-import { fetchRestaurantProfile } from '../store/actions/restaurants';
+import RestaurantProfile from '../../components/RestaurantProfile/RestaurantProfile';
+import { fetchRestaurantProfile, fetchRestaurantReviews } from '../../store/actions/restaurants';
 
 const mapStateToProps = state => ({
   profile: state.restaurants.selectedRestaurant,
@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   fetchRestaurantProfile,
+  fetchRestaurantReviews,
 };
 
 export default connect(
