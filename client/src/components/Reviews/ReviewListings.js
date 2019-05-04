@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import ReviewCard from './ReviewCard';
-import { colorDefaultDarkOrange } from '../../vars';
+import { IoMdContact } from 'react-icons/io';
+import { colorDefaultDarkOrange, colorDefaultOrange, colorLightGray, colorWhite } from '../../vars';
 import { DefaultBtn } from '../../sharedAssets';
 import Modal from 'react-responsive-modal';
 
@@ -25,6 +26,7 @@ const OptionPanel = styled.form`
   flex-direction: column;
   margin: 10px;
   flex: 1 1 0;
+  align-items: center;
 `;
 
 const MiddleHr = styled.hr`
@@ -32,6 +34,43 @@ const MiddleHr = styled.hr`
   border: none;
   border-left: 1px solid ${colorDefaultDarkOrange};
   margin: 15px;
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 5px 15px 0 15px;
+  align-items: center;
+  width: 100%;
+`;
+
+const Input = styled.input`
+  width: 99%;
+  margin: 10px;
+  font-size: 1em;
+
+  :focus {
+    outline: none;
+  }
+`;
+
+const Avatar = styled(IoMdContact)`
+  font-size: 400%;
+  color: ${colorLightGray};
+`;
+
+const LoginBtn = styled.button`
+  background-color: ${colorDefaultOrange};
+  width: 100%;
+  color: ${colorWhite};
+  border: none;
+  font-size: 1em;
+  padding: 10px;
+  margin-top: 10px;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 class ReviewListings extends Component {
@@ -64,13 +103,21 @@ class ReviewListings extends Component {
           <ReviewContainer>
             <OptionPanel>
               <h3>Please log in to view your recent orders.</h3>
-              <input type='text'></input>
-              <input type='text'></input>
+              <Avatar />
+              <InputContainer>
+                <label>Username</label>
+                <Input type='text' />
+              </InputContainer>
+              <InputContainer>
+                <label>Password</label>
+                <Input type='password' />
+              </InputContainer>
+              <LoginBtn>Login</LoginBtn>
             </OptionPanel>
             <MiddleHr />
             <OptionPanel>
               <h3>Enter the confirmation number on your receipt to leave a review.</h3>
-              <input type='text'></input>
+              <input type='text' />
             </OptionPanel>
           </ReviewContainer>
         </Modal>
