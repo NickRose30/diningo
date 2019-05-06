@@ -27,13 +27,20 @@ const Price = styled.h4`
   margin-bottom: 0;
 `;
 
-const MenuItem = props => (
+const MenuItem = ({
+  item,
+  price,
+  description,
+  showAddBtn,
+  addItemToOrder,
+}) => (
   <Container>
     <Header>
-      <Name>{props.item}</Name>
-      <Price>{props.price}</Price>
+      <Name>{item}</Name>
+      <Price>{price}</Price>
     </Header>
-    <Description>{props.description}</Description>
+    <Description>{description}</Description>
+    {showAddBtn && <button onClick={addItemToOrder({ item, price })}>+</button>}
   </Container>
 );
 

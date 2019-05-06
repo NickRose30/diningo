@@ -12,6 +12,7 @@ export const DefaultBtn = styled(Link)`
   color: ${colorDefaultOrange};
   border-radius: 5px;
   padding: 5px 20px;
+  text-align: center;
   
   :hover {
     background-color: ${colorDefaultOrange};
