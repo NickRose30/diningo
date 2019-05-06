@@ -99,7 +99,7 @@ class RestaurantMenu extends Component {
     return (
       <Container>
         <CreateOrderBtn to='#' onClick={this.handleCreateOrder}>
-          create order
+          Place an order
         </CreateOrderBtn>
         <MenuOrderContainer>
           <Menu
