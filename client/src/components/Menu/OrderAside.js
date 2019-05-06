@@ -5,7 +5,7 @@ import { colorDefaultDarkOrange, colorDefaultOrange } from '../../vars';
 import { DefaultBtn } from '../../sharedAssets';
 
 const Container = styled.div`
-  width: 15em;
+  width: 20em;
   padding: 10px;
   margin-left: 10px;
   border: 1px solid ${colorDefaultDarkOrange};
