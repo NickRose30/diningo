@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colorDefaultDarkOrange } from '../../vars';
+import { IoMdAddCircleOutline } from 'react-icons/io';
 
 const Container = styled.div`
   border-bottom: 1px solid ${colorDefaultDarkOrange};
@@ -27,13 +28,37 @@ const Price = styled.h4`
   margin-bottom: 0;
 `;
 
-const MenuItem = props => (
+const FlexItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+`;
+
+const AddItemBtn = styled(IoMdAddCircleOutline)`
+  color: ${colorDefaultDarkOrange};
+  font-size: 175%;
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const MenuItem = ({
+  item,
+  price,
+  description,
+  showAddBtn,
+  addItemToOrder,
+}) => (
   <Container>
     <Header>
-      <Name>{props.item}</Name>
-      <Price>{props.price}</Price>
+      <Name>{item}</Name>
+      <Price>{price}</Price>
     </Header>
-    <Description>{props.description}</Description>
+    <FlexItem>
+      <Description>{description}</Description>
+        {showAddBtn && <AddItemBtn onClick={addItemToOrder({ item, price })} />}
+    </FlexItem>
   </Container>
 );
 

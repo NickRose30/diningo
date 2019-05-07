@@ -5,24 +5,40 @@ import { withRouter } from 'react-router-dom';
 import 'css/react-tabs.css';
 import styled from 'styled-components';
 import MenuItem from './MenuItem';
+import OrderAside from './OrderAside';
+import { DefaultBtn } from '../../sharedAssets';
 
 const Container = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+const CreateOrderBtn = styled(DefaultBtn)`
+  margin: 10px 0 0 auto;
 `;
 
 const Menu = styled(Tabs)`
   width: 100%;
-  padding-top: 25px;
 `;
 
 const ContentPanel = styled(TabPanel)`
   margin: 0 15px;
 `;
 
+const MenuOrderContainer = styled.div`
+  display: flex;
+  width: 100%;
+  padding-top: 25px;
+`;
+
 class RestaurantMenu extends Component {
   state = {
     menu: {},
     selectedIndex: 0,
+    orderInProgress: false,
+    currentOrder: [],
   }
 
   componentDidMount() {
@@ -37,10 +53,30 @@ class RestaurantMenu extends Component {
     return null;
   }
 
-  handleSelect = selectedIndex => this.setState({ selectedIndex });
+  handleTabSelect = selectedIndex => this.setState({ selectedIndex });
+
+  handleAddMenuItem = item => () => {
+    const currentOrder = this.state.currentOrder.slice();
+    currentOrder.push(item);
+    this.setState({ currentOrder });
+  }
+
+  handleCreateOrder = e => {
+    e.preventDefault();
+    this.setState({ orderInProgress: true });
+  }
+
+  handleCloseOrderAside = () => this.setState({ orderInProgress: false });
 
   toTabPanel = (val, key) => {
-    const contents = val.map((menuItem, i) => <MenuItem {...menuItem} key={i} />);
+    const contents = val.map((menuItem, i) => (
+      <MenuItem 
+        {...menuItem} 
+        showAddBtn={this.state.orderInProgress}
+        addItemToOrder={this.handleAddMenuItem}
+        key={i} 
+      />
+    ));
     return <ContentPanel key={key}>{contents}</ContentPanel>;
   }
 
@@ -61,13 +97,25 @@ class RestaurantMenu extends Component {
     )(this.state.menu);
 
     return (
-      <Menu
-        selectedIndex={this.state.selectedIndex}
-        onSelect={this.handleSelect}
-      >
-        <TabList>{TabHeaders}</TabList>
-        {TabContents}
-      </Menu>
+      <Container>
+        <CreateOrderBtn to='#' onClick={this.handleCreateOrder}>
+          Place an order
+        </CreateOrderBtn>
+        <MenuOrderContainer>
+          <Menu
+            selectedIndex={this.state.selectedIndex}
+            onSelect={this.handleTabSelect}
+          >
+            <TabList>{TabHeaders}</TabList>
+            {TabContents}
+          </Menu>
+          {this.state.orderInProgress && 
+            <OrderAside 
+              handleClose={this.handleCloseOrderAside}
+              items={this.state.currentOrder}
+            />}
+        </MenuOrderContainer>
+      </Container>
     );
   }
 }

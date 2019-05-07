@@ -205,6 +205,21 @@ export const fetchRestaurantMenu = id => dispatch => {
           description: `They're magically delicious.`,
           price: 99.99,
         },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
+        {
+          item: 'Lucky Charms',
+          description: `They're magically delicious.`,
+          price: 99.99,
+        },
       ],
       pasta: [
         {
