@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 // components
 import Nav from './Nav/Nav';
+import Footer from './Footer/Footer';
 
 const Container = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const CompContainer = styled.div`
   margin: 0 30px;
   display: flex;
 `;
@@ -14,12 +21,13 @@ class Workspace extends Component {
   render() {
     const { Component } = this.props;
     return (
-      <div>
+      <Container>
         <Nav workspaceRef={this.workspaceRef} />
-        <Container>
+        <CompContainer>
           <Component setRef={this.workspaceRef} />
-        </Container>
-      </div>
+        </CompContainer>
+        <Footer />
+      </Container>
     );
   }
 }

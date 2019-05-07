@@ -9,6 +9,7 @@ export const colorTransparent = '#00000000';
 export const colorTransparentGray = '#ffffff6b';
 export const colorTransparentGray2 = '#ffffff8c';
 export const colorTransparentBlack = '#0000008c';
+export const colorTransparentWhite = '#e4e2e2e3';
 export const colorGreen = '#008000';
 export const colorYellow = '#f1f116';
 export const colorRed = '#ff0000';

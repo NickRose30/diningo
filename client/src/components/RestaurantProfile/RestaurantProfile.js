@@ -23,7 +23,7 @@ const MAP_WIDTH = 300;
 
 const Container = styled.div`
   display: flex;
-  padding: 30px 30px;
+  padding: 30px 30px 0 30px;
 `;
 
 const LeftPanel = styled.div`
