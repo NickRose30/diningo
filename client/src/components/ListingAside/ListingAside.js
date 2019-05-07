@@ -11,7 +11,11 @@ const PRICE = 2;
 const RATING = 3;
 
 const AsideContainer = styled.div`
-  margin-top: 20px;
+  ${props => props.alignBottom ?
+    `margin-top: auto;
+    margin-bottom: 20px;` : 
+    'margin-top: 20px;'
+  };
   ${props => props.isSticky ?
     `position: fixed;
     top: 15px;` : ''
@@ -52,12 +56,14 @@ class ListingAside extends Component {
   };
 
   render() {
+    const { isSticky, hidden, alignBottom } = this.props;
+
     const points = this.props.results ? this.props.results.map(listing => (
       { lat: listing.lat, lng: listing.lng }
     )) : [];
 
     return (
-      <AsideContainer isSticky={this.props.isSticky} hidden={this.props.hidden}>
+      <AsideContainer isSticky={isSticky} hidden={hidden} alignBottom={alignBottom}>
         <UpperAside>
           <span>Sort by:</span>
           <SortBtn

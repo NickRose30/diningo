@@ -3,6 +3,7 @@ import RestaurantListings from '../../containers/RestaurantListings/RestaurantLi
 import ListingAside from '../../containers/ListingAside/ListingAside';
 import styled from 'styled-components';
 import * as R from 'ramda';
+import ReactDOM from 'react-dom';
 
 const LandingContainer = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ const ListingContainer = styled.div`
 class Landing extends Component {
   state = {
     stickyAside: false,
+    asideBottomAlign: false,
   }
   landing = React.createRef();
 
@@ -35,9 +37,17 @@ class Landing extends Component {
   handleScroll = () => {
     const offsetTop = this.props.setRef.current.offsetTop;
     const itemTranslate = (window.scrollY - 50) > offsetTop;
+    const landingClientRect = ReactDOM
+      .findDOMNode(this.props.setRef.current)
+      .getBoundingClientRect();
+    const footerClientRect = ReactDOM
+      .findDOMNode(this.props.footerRef.current)
+      .getBoundingClientRect();
+    const bottomAlign = window.innerHeight - footerClientRect.height + 60 > landingClientRect.bottom
 
     this.setState({
-      stickyAside: itemTranslate
+      stickyAside: itemTranslate && !bottomAlign,
+      asideBottomAlign: bottomAlign,
     });
   };
 
@@ -52,7 +62,7 @@ class Landing extends Component {
             'Recommended For You'}
         </ListingHeader>
         <ListingContainer>
-          <ListingAside isSticky={this.state.stickyAside} />
+          <ListingAside isSticky={this.state.stickyAside} alignBottom={this.state.asideBottomAlign} />
           {this.state.stickyAside && 
             <ListingAside hidden isSticky={false} />
           }

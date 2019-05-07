@@ -17,6 +17,7 @@ const CompContainer = styled.div`
 
 class Workspace extends Component {
   workspaceRef = React.createRef();
+  footerRef = React.createRef();
 
   render() {
     const { Component } = this.props;
@@ -24,9 +25,9 @@ class Workspace extends Component {
       <Container>
         <Nav workspaceRef={this.workspaceRef} />
         <CompContainer>
-          <Component setRef={this.workspaceRef} />
+          <Component setRef={this.workspaceRef} footerRef={this.footerRef} />
         </CompContainer>
-        <Footer />
+        <Footer setRef={this.footerRef} />
       </Container>
     );
   }

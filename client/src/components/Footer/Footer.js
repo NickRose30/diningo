@@ -26,7 +26,7 @@ const CopyrightLabel = styled.div`
 `;
 
 const Footer = props => (
-  <CompContainer>
+  <CompContainer ref={props.setRef}>
     <FooterContainer>
       <Copyright>
         <CopyrightLabel>© 2019 Copyright:</CopyrightLabel> Diningoinc.com
