@@ -206,7 +206,7 @@ export const fetchRestaurantProfile = id => dispatch => {
         'https://www.cheatsheet.com/wp-content/uploads/2018/08/Gunther-Friends.png',
       ],
       "title": "Central Perk",
-      "address": "51 N Pleasant St, Amherst, MA 01002",
+      "address": "141 2nd Ave, New York, NY 10003",
       fullDescription: `Central Perk is a cozy little coffee shop in the heart of New York. 
         We are known for our coffee and our inviting atmosphere. With plenty of comfortable 
         seating, Central Perk is a great place to relax alone or with friends. We often 
